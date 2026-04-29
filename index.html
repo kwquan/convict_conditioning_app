@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>SOLO GRIND</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SOLO GRIND">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#05070f">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TtSIVh1YQcchQnSyIijhKFYtgobQVWnUwufQLmjQkKS6OgmvBwY/FqoOLs64OroIg+AHi5Oik6CIl/i8ptIjx4Lgf7+497t4BQq3MNKtrHNB020wl4mImuyqGXhFCiAFMIyIzy5iTpCR8x9c9Any9i/Es/3N/jl41ZzEgIBLPMsO0iDeIpzdtg/M+cYQVZZX4nHjMpAsSP3Jd8fiNc8FlgWdGzExqnjhCLBY6WOlgVjQ14mniqKrplC9kPFY5b3HWylXWuid/YTinryxznWYMCSxiCRJEKKiihDJsxGjVSbGQov24j3/Q9UvkUshVASPHAirQILt+8D/43a2Vn5zwksJxIPBi2R+jQGgXaNQt+3vMtt0TIPAMXGktf7UGLH2SXm9p0SOgdxu4uG5pyh5wuQMMPRmyKbtSkKaQzwPvZ/RNBYDBLTC05vXW2MfpA5CirpI3wMEhMFKg7HWPW3c7e/v3TLO/HyGPcrGGWOHHAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH6AQaChcGN4T+tgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAWCSURBVHja7cExAQAAAMKg9U9tDB+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAMBuAABHwAAAABJRU5ErkJggg==">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05070f;--panel:#0a0d1a;--border:#1a2040;--blue:#0af;--blue-dim:#0af3;--gold:#f5c842;--green:#00ffaa;--red:#ff3355;--text:#c8d4f0;--muted:#4a5580;--re:#aaa;--rd:#4dfa7a;--rc:#4dc8ff;--rb:#a855f7;--ra:#ff9f0a;--rs:#f5c842}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;min-height:100vh;overflow-x:hidden;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:1}
+.wrap{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:0 14px 80px}
+header{text-align:center;padding:28px 0 10px}
+.hlabel{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:6px;color:var(--blue);margin-bottom:6px;animation:plabel 3s ease-in-out infinite}
+@keyframes plabel{0%,100%{opacity:.6}50%{opacity:1}}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,10vw,80px);letter-spacing:8px;line-height:1;background:linear-gradient(135deg,#fff,var(--blue) 50%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hsub{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:3px;margin-top:5px}
+
+.xp-section{margin:14px 0;background:var(--panel);border:1px solid var(--border);padding:12px 15px}
+.xp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.xp-level{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--gold);letter-spacing:3px}
+.xp-lbl{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:3px;color:var(--muted)}
+.xp-bg{height:5px;background:var(--border);overflow:hidden}
+.xp-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .8s cubic-bezier(.4,0,.2,1)}
+.xp-nums{display:flex;justify-content:space-between;margin-top:4px}
+.xp-cur{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--blue)}
+.xp-max{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted)}
+
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}
+.sc{background:var(--panel);border:1px solid var(--border);border-top:2px solid var(--blue-dim);padding:10px 12px;text-align:center;position:relative;overflow:hidden}
+.sc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--blue-dim),transparent 60%);pointer-events:none}
+.slbl{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:3px;color:var(--muted);margin-bottom:2px}
+.sv{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--blue);line-height:1}
+.sv.gold{color:var(--gold)}.sv.green{color:var(--green)}
+
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:5px;color:var(--blue);border-left:3px solid var(--blue);padding-left:10px;margin:22px 0 11px;display:flex;align-items:center;gap:8px}
+.stitle .cnt{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted)}
+
+/* DAILY CARD */
+.daily-card{background:var(--panel);border:1px solid var(--gold);margin-bottom:14px;position:relative;overflow:hidden}
+.daily-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,200,66,.04),transparent 60%);pointer-events:none}
+.daily-top{display:flex;align-items:center;gap:11px;padding:13px 15px;border-bottom:1px solid var(--border)}
+.daily-badge{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);border:1px solid var(--gold);padding:3px 7px;flex-shrink:0}
+.daily-tw{flex:1}
+.daily-title{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:3px;color:var(--gold);line-height:1}
+.daily-sub{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--muted);letter-spacing:2px;margin-top:2px}
+.daily-streak-wrap{text-align:right;flex-shrink:0}
+.daily-snum{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);line-height:1}
+.daily-slbl{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--muted);letter-spacing:2px}
+
+.pips{display:flex;gap:5px;padding:9px 15px;border-bottom:1px solid var(--border)}
+.pip{flex:1;height:22px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--muted);transition:all .3s}
+.pip.done{border-color:var(--green);color:var(--green);background:rgba(0,255,170,.05)}
+.pip.active{border-color:var(--gold);color:var(--gold);animation:ppulse 2s ease-in-out infinite}
+@keyframes ppulse{0%,100%{box-shadow:none}50%{box-shadow:0 0 10px rgba(245,200,66,.4)}}
+.pip.locked{opacity:.3}
+
+/* SEGMENTS */
+.daily-segs{padding:9px 15px}
+.seg-row{padding:9px 0;border-bottom:1px solid #0d1020}
+.seg-row:last-child{border-bottom:none}
+.seg-header{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.seg-name{font-size:12px;font-weight:700;letter-spacing:1px;flex:1}
+.seg-ex{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--muted)}
+.seg-tier-badge{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:2px;padding:2px 6px;border:1px solid;flex-shrink:0}
+.seg-tier-badge.beg{border-color:var(--muted);color:var(--muted)}
+.seg-tier-badge.int{border-color:var(--blue);color:var(--blue)}
+.seg-tier-badge.pro{border-color:var(--gold);color:var(--gold)}
+.seg-main{display:flex;align-items:center;gap:10px}
+.seg-std-display{flex:1}
+.seg-std-val{font-size:15px;font-weight:700;letter-spacing:.5px}
+.seg-std-val.beg{color:var(--muted)}
+.seg-std-val.int{color:var(--blue)}
+.seg-std-val.pro{color:var(--gold)}
+.seg-pro-streak{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--gold);margin-top:2px;letter-spacing:1px}
+.seg-btns{display:flex;gap:5px;flex-shrink:0}
+.sbtn{width:34px;height:32px;border:1px solid var(--border);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s}
+.sbtn.tick{border-color:rgba(0,255,170,.35);color:rgba(0,255,170,.35)}
+.sbtn.tick.on{border-color:var(--green);background:rgba(0,255,170,.1);color:var(--green)}
+.sbtn.cross{border-color:rgba(255,51,85,.35);color:rgba(255,51,85,.35)}
+.sbtn.cross.on{border-color:var(--red);background:rgba(255,51,85,.1);color:var(--red)}
+
+/* CARDIO */
+.cardio-row{display:flex;align-items:center;gap:10px;padding:11px 15px;border-top:1px solid var(--border);flex-wrap:wrap}
+.cardio-left{flex:1;min-width:0}
+.cardio-title{font-size:13px;font-weight:700;letter-spacing:1px;color:var(--blue)}
+.cardio-sub{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--muted);letter-spacing:1px;margin-top:1px}
+.cardio-km{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--blue);line-height:1;margin:2px 0}
+.cardio-dist-opts{display:flex;gap:5px;margin-top:4px;flex-wrap:wrap}
+.dist-btn{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:1px;padding:3px 8px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.dist-btn:hover{border-color:var(--blue);color:var(--blue)}
+.dist-btn.sel{border-color:var(--blue);color:var(--blue);background:rgba(0,170,255,.08)}
+.cardio-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.cardio-result-btns{display:flex;gap:5px}
+.crBtn{width:34px;height:32px;border:1px solid var(--border);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s}
+.crBtn.tick{border-color:rgba(0,255,170,.35);color:rgba(0,255,170,.35)}
+.crBtn.tick.on{border-color:var(--green);background:rgba(0,255,170,.1);color:var(--green)}
+.crBtn.cross{border-color:rgba(255,51,85,.35);color:rgba(255,51,85,.35)}
+.crBtn.cross.on{border-color:var(--red);background:rgba(255,51,85,.1);color:var(--red)}
+.cardio-xp-note{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--gold);letter-spacing:1px}
+
+.daily-foot{padding:10px 15px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);gap:8px;flex-wrap:wrap}
+.daily-prog{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--muted)}
+.btn-log{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;padding:7px 14px;border:1px solid var(--gold);background:transparent;color:var(--gold);cursor:pointer;transition:all .2s}
+.btn-log:hover:not(:disabled){background:var(--gold);color:var(--bg)}
+.btn-log:disabled{opacity:.3;cursor:not-allowed}
+.btn-log.logged{border-color:var(--green);color:var(--green);cursor:default}
+
+.off-day{background:var(--panel);border:1px solid var(--border);padding:18px 15px;text-align:center;margin-bottom:14px}
+.off-icon{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--muted);letter-spacing:4px}
+.off-txt{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:2px;margin-top:4px}
+
+/* QUEST CARDS */
+.qcard{background:var(--panel);border:1px solid var(--border);margin-bottom:8px;position:relative;overflow:hidden;transition:border-color .3s;cursor:pointer}
+.qcard:hover,.qcard.open{border-color:var(--blue)}
+.qcard.mastered{border-color:var(--green);opacity:.6}
+.rstripe{position:absolute;left:0;top:0;bottom:0;width:3px}
+.rE .rstripe{background:var(--re)}.rD .rstripe{background:var(--rd)}.rC .rstripe{background:var(--rc)}
+.rB .rstripe{background:var(--rb)}.rA .rstripe{background:var(--ra)}.rS .rstripe{background:var(--rs);box-shadow:0 0 8px var(--rs)}
+.qhdr{display:flex;align-items:center;gap:10px;padding:10px 14px 10px 18px}
+.rbadge{font-family:'Bebas Neue',sans-serif;font-size:15px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border:1px solid currentColor;flex-shrink:0}
+.rE .rbadge{color:var(--re)}.rD .rbadge{color:var(--rd)}.rC .rbadge{color:var(--rc)}
+.rB .rbadge{color:var(--rb)}.rA .rbadge{color:var(--ra)}.rS .rbadge{color:var(--rs)}
+.qinfo{flex:1;min-width:0}
+.qname{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;line-height:1;margin-bottom:2px}
+.qcat{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:3px;color:var(--muted)}
+.qright{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.qstd{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--blue);text-align:right}
+.qdots{display:flex;gap:2px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--border)}
+.dot.done{background:var(--green)}.dot.cur{background:var(--gold);box-shadow:0 0 4px var(--gold)}
+.chevron{font-size:8px;color:var(--muted);transition:transform .3s}
+.qcard.open .chevron{transform:rotate(180deg)}
+.qsteps{display:none;border-top:1px solid var(--border)}
+.qcard.open .qsteps{display:block}
+.srow{display:flex;align-items:flex-start;gap:9px;padding:9px 15px;border-bottom:1px solid #0d1020;position:relative}
+.srow:last-child{border-bottom:none}
+.srow.sdone{opacity:.38}.srow.scur{background:rgba(0,170,255,.04)}.srow.slocked{opacity:.18}
+.snum{font-family:'Bebas Neue',sans-serif;font-size:17px;line-height:1;color:var(--muted);flex-shrink:0;width:20px;text-align:center}
+.srow.scur .snum{color:var(--gold)}.srow.sdone .snum{color:var(--green)}
+.scontent{flex:1}
+.stname{font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:2px}
+.srow.scur .stname{color:var(--gold)}.srow.sdone .stname{color:var(--green)}
+.stdesc{font-size:10px;color:var(--muted);line-height:1.4;margin-bottom:3px}
+.tier-rows{display:flex;flex-direction:column;gap:1px}
+.tr{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:1px}
+.tr.beg{color:var(--muted)}.tr.int{color:var(--blue)}.tr.pro{color:var(--gold)}
+.sact{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0}
+.sxp{font-family:'Bebas Neue',sans-serif;font-size:10px;color:var(--gold)}
+.stag{font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:2px;padding:2px 5px;border:1px solid;background:transparent}
+.stag.cur{border-color:var(--gold);color:var(--gold)}.stag.done2{border-color:var(--green);color:var(--green)}
+.cur-bar{position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);box-shadow:0 0 6px var(--gold)}
+.mastered-tag{font-family:'Share Tech Mono',monospace;font-size:6px;color:var(--green);border:1px solid var(--green);padding:1px 4px;margin-left:4px;vertical-align:middle}
+
+/* CHART */
+.chart-section{background:var(--panel);border:1px solid var(--border);padding:13px 15px;margin-bottom:14px}
+.chart-tabs{display:flex;gap:5px;margin-bottom:11px;flex-wrap:wrap}
+.ctab{font-family:'Share Tech Mono',monospace;font-size:8px;letter-spacing:2px;padding:4px 9px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .2s}
+.ctab.active{border-color:var(--blue);color:var(--blue)}
+.chart-wrap{position:relative;width:100%;height:190px}
+.history-empty{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);text-align:center;padding:32px 0;letter-spacing:2px}
+
+/* REWARDS */
+.rewards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:14px}
+.badge-card{background:var(--panel);border:1px solid var(--border);padding:12px 10px;text-align:center;position:relative;transition:border-color .3s}
+.badge-card.unlocked{border-color:var(--gold)}
+.badge-card.locked{opacity:.4}
+.badge-icon{font-size:28px;line-height:1;margin-bottom:5px;display:block}
+.badge-name{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;color:var(--gold);margin-bottom:2px}
+.badge-card.locked .badge-name{color:var(--muted)}
+.badge-desc{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--muted);letter-spacing:1px;line-height:1.4}
+.badge-unlocked-label{font-family:'Share Tech Mono',monospace;font-size:6px;letter-spacing:2px;color:var(--green);margin-top:4px}
+.badge-glow{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(245,200,66,.08) 0%,transparent 70%);pointer-events:none}
+
+/* OVERLAYS */
+.overlay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(0,0,20,.92);padding:20px}
+.overlay.show{display:flex}
+.mbox{text-align:center;padding:38px 32px;border:1px solid var(--gold);background:var(--panel);box-shadow:0 0 48px rgba(245,200,66,.18);animation:pop .4s cubic-bezier(.34,1.56,.64,1);max-width:420px;width:100%}
+.mbox.red{border-color:var(--red);box-shadow:0 0 48px rgba(255,51,85,.18)}
+@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+.mlbl{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:5px;color:var(--muted);margin-bottom:8px}
+.mbox.red .mlbl{color:var(--red)}
+.mtitle{font-family:'Bebas Neue',sans-serif;font-size:46px;letter-spacing:5px;color:var(--gold);line-height:1;margin-bottom:6px}
+.mbox.red .mtitle{color:var(--red)}
+.msub{font-size:13px;color:var(--text);letter-spacing:1px;margin-bottom:5px}
+.mbody{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:20px;line-height:1.7}
+.pen-info{background:rgba(255,51,85,.06);border:1px solid rgba(255,51,85,.28);padding:8px 11px;margin:8px 0;font-family:'Share Tech Mono',monospace;font-size:8px;color:#ff6677;letter-spacing:1px;line-height:1.6;text-align:left}
+.badge-unlock-box{background:rgba(245,200,66,.06);border:1px solid rgba(245,200,66,.3);padding:12px;margin-bottom:16px}
+.badge-unlock-icon{font-size:36px;display:block;margin-bottom:4px}
+.mbtns{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.mbtn{font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:2px;padding:8px 16px;border:1px solid var(--gold);background:transparent;color:var(--gold);cursor:pointer;transition:all .2s}
+.mbtn:hover{background:var(--gold);color:var(--bg)}
+.mbox.red .mbtn{border-color:var(--red);color:var(--red)}
+.mbox.red .mbtn:hover{background:var(--red);color:var(--bg)}
+.mbtn.sec{border-color:var(--muted);color:var(--muted)}
+.mbtn.sec:hover{background:var(--muted);color:var(--bg)}
+.mbtn.grace{border-color:#ff9f0a;color:#ff9f0a}
+.mbtn.grace:hover{background:#ff9f0a;color:var(--bg)}
+
+/* SETUP */
+#setup{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:30px 14px 52px}
+#setup.gone{display:none}
+.si{max-width:520px;width:100%}
+.sh{text-align:center;margin-bottom:22px}
+.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,8vw,58px);letter-spacing:8px;color:var(--gold)}
+.ss{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:3px;margin-top:4px}
+.si-intro{font-size:12px;color:var(--muted);text-align:center;margin-bottom:20px;line-height:1.6}
+.setup-ser{margin-bottom:11px;background:var(--panel);border:1px solid var(--border);padding:12px 14px}
+.setup-sname{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:var(--blue);margin-bottom:2px}
+.setup-scat{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--muted);letter-spacing:3px;margin-bottom:8px}
+.setup-sblist{display:flex;flex-direction:column;gap:4px}
+.ssb{display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:pointer;text-align:left;width:100%;transition:all .2s;font-family:'Rajdhani',sans-serif}
+.ssb:hover{border-color:var(--blue);background:rgba(0,170,255,.05)}
+.ssb.sel{border-color:var(--gold);background:rgba(245,200,66,.06);color:var(--gold)}
+.ssbn{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--muted);flex-shrink:0;width:18px}
+.ssb.sel .ssbn{color:var(--gold)}
+.ssbi{flex:1}
+.ssbname{font-size:12px;font-weight:700;letter-spacing:1px}
+.ssbstd{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--muted);margin-top:1px}
+.ssb.sel .ssbstd{color:rgba(245,200,66,.5)}
+.btn-confirm{display:block;width:100%;margin-top:18px;padding:11px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:4px;border:1px solid var(--gold);background:transparent;color:var(--gold);cursor:pointer;transition:all .2s}
+.btn-confirm:hover{background:var(--gold);color:var(--bg)}
+
+
+  /* RECOVERY MODE */
+  .recovery-banner{background:rgba(255,51,85,.08);border:1px solid rgba(255,51,85,.4);padding:8px 15px;margin:0;display:flex;align-items:center;gap:8px}
+  .recovery-icon{font-size:16px;flex-shrink:0}
+  .recovery-text{font-family:'Share Tech Mono',monospace;font-size:8px;color:#ff8888;letter-spacing:1px;line-height:1.5}
+  .seg-recovery{color:var(--red)!important}
+  .seg-recovery-std{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--red);margin-top:2px;letter-spacing:1px}
+  /* MONTH PIPS */
+  .month-pips{display:flex;flex-wrap:wrap;gap:3px;padding:9px 15px;border-bottom:1px solid var(--border)}
+  .mpip{width:18px;height:18px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:6px;color:var(--muted);transition:all .2s}
+  .mpip.done{border-color:var(--green);background:rgba(0,255,170,.08);color:var(--green)}
+  .mpip.today{border-color:var(--gold);color:var(--gold);animation:ppulse 2s ease-in-out infinite}
+  .mpip.missed{border-color:var(--red);background:rgba(255,51,85,.08);color:var(--red)}
+  .mpip.future{opacity:.2}
+  .mpip.offday{opacity:.1}
+  /* PROGRESSION CHART */
+  .prog-chart-wrap{position:relative;width:100%;height:180px;margin-top:8px}
+@keyframes badgePop{from{transform:scale(0) rotate(-20deg);opacity:0}60%{transform:scale(1.2) rotate(5deg)}to{transform:scale(1) rotate(0deg);opacity:1}}
+.badge-card.unlocked{border-color:var(--gold);cursor:pointer;transition:all .2s}
+.badge-card.unlocked:active{transform:scale(.97)}
+@media(max-width:480px){.stats-bar{gap:5px}.sv{font-size:19px}.mbox{padding:26px 15px}.mtitle{font-size:36px}.pips{gap:3px}.rewards-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<!-- SETUP -->
+<div id="setup">
+  <div class="si">
+    <div class="sh"><div class="st">SOLO GRIND</div><div class="ss">HUNTER INITIALIZATION</div></div>
+    <p class="si-intro">Select your <strong style="color:var(--gold)">current step</strong> for each series. All start from Beginner standard.</p>
+    <div id="setup-list"></div>
+    <button class="btn-confirm" onclick="confirmSetup()">&#9654; BEGIN TRAINING</button>
+  </div>
+</div>
+
+<!-- ADVANCE -->
+<div class="overlay" id="ov-advance">
+  <div class="mbox">
+    <div class="mlbl">[ QUEST CYCLE COMPLETE ]</div>
+    <div class="mtitle">4&#215; PROVEN</div>
+    <div class="msub">PROGRESSION STANDARD CLEARED 4&#215;</div>
+    <div class="mbody">You have mastered the current step. Advance all 6 series to the next step, or keep drilling.</div>
+    <div class="mbtns">
+      <button class="mbtn" onclick="advanceStep()">&#9654; ADVANCE</button>
+      <button class="mbtn sec" onclick="keepStep()">DRILL AGAIN</button>
+    </div>
+  </div>
+</div>
+
+<!-- SESSION COMPLETE -->
+<div class="overlay" id="ov-session">
+  <div class="mbox">
+    <div class="mlbl">[ SESSION LOGGED ]</div>
+    <div class="mtitle" style="font-size:40px">SESSION<br>CLEAR</div>
+    <div class="msub" id="sc-sub">Day cleared</div>
+    <div class="mbody" id="sc-body">Rest tomorrow. Return stronger.</div>
+    <div class="mbtns"><button class="mbtn" onclick="closeOv('ov-session')">ACKNOWLEDGED</button></div>
+  </div>
+</div>
+
+<!-- RANK UP -->
+<div class="overlay" id="ov-rank">
+  <div class="mbox">
+    <div class="mlbl">[ RANK ACHIEVED ]</div>
+    <div class="mtitle" id="rank-title">S-RANK</div>
+    <div class="mbody">Your hunter rank has increased.</div>
+    <div class="mbtns"><button class="mbtn" onclick="closeOv('ov-rank')">CONTINUE</button></div>
+  </div>
+</div>
+
+<!-- BADGE UNLOCK -->
+<div class="overlay" id="ov-badge" style="z-index:110">
+  <canvas id="badge-particles" style="position:absolute;inset:0;pointer-events:none;z-index:0"></canvas>
+  <div class="mbox" style="position:relative;z-index:1;border-color:var(--gold);max-width:380px">
+    <div class="mlbl" style="color:var(--gold);letter-spacing:8px;font-size:8px">✦ &nbsp;BADGE UNLOCKED&nbsp; ✦</div>
+    <div id="bu-icon-wrap" style="margin:12px 0 8px">
+      <span id="bu-icon" style="font-size:72px;display:block;line-height:1;filter:drop-shadow(0 0 24px rgba(245,200,66,.9));animation:badgePop .5s cubic-bezier(.34,1.56,.64,1)">&#127942;</span>
+    </div>
+    <div id="bu-name" style="font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:5px;color:var(--gold);line-height:1;margin-bottom:6px;filter:drop-shadow(0 0 10px rgba(245,200,66,.5))">BADGE</div>
+    <div id="bu-desc" style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text);letter-spacing:2px;margin-bottom:10px;line-height:1.6"></div>
+    <div id="bu-flavor" style="font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--muted);margin-bottom:18px;line-height:1.6;font-style:italic"></div>
+    <div style="width:60%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 16px"></div>
+    <div class="mbtns"><button class="mbtn" style="letter-spacing:4px;padding:10px 28px" onclick="closeBadgeOv()">✦ CLAIM ✦</button></div>
+  </div>
+</div>
+
+
+<!-- RECOVERY MODE -->
+<div class="overlay" id="ov-recovery">
+  <div class="mbox red">
+    <div class="mlbl">[ SYSTEM INTERVENTION ]</div>
+    <div class="mtitle" style="font-size:36px">RECOVERY<br>PROTOCOL</div>
+    <div class="msub" id="rec-sub">First attempt failed.</div>
+    <div class="mbody" id="rec-body">The System has initiated a recovery protocol. Complete 5 consecutive weekday sessions at half reps to restore full capacity.</div>
+    <div class="mbtns"><button class="mbtn" onclick="closeOv('ov-recovery')">UNDERSTOOD</button></div>
+  </div>
+</div>
+
+<!-- PENALTY -->
+<div class="overlay" id="ov-penalty">
+  <div class="mbox red">
+    <div class="mlbl">[ SYSTEM PENALTY ]</div>
+    <div class="mtitle" id="pen-title">WEAKNESS<br>DETECTED</div>
+    <div class="msub" id="pen-sub">You failed to appear.</div>
+    <div class="pen-info" id="pen-info"></div>
+    <div class="mbtns">
+      <button class="mbtn grace" id="grace-btn" onclick="useGrace()" style="display:none">USE GRACE DAY</button>
+      <button class="mbtn" onclick="acceptPenalty()">ACCEPT PENALTY</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="wrap" id="app" style="display:none">
+  <header>
+    <div class="hlabel">[ SYSTEM NOTIFICATION ]</div>
+    <h1>SOLO GRIND</h1>
+    <div class="hsub">CONVICT CONDITIONING &#183; HUNTER SYSTEM</div>
+  </header>
+  <div id="weekly-quote" style="background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--gold);padding:12px 16px;margin:0 0 14px;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,200,66,.04),transparent 60%);pointer-events:none"></div>
+    <div style="font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:4px;color:var(--gold);margin-bottom:6px;opacity:.7">[ WEEKLY MANDATE ]</div>
+    <div id="quote-text" style="font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:600;color:var(--text);line-height:1.5;letter-spacing:.5px;font-style:italic"></div>
+    <div id="quote-src" style="font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--muted);letter-spacing:2px;margin-top:6px"></div>
+  </div>
+
+  <div class="xp-section">
+    <div class="xp-header">
+      <div><div class="xp-lbl">HUNTER RANK</div><div class="xp-level" id="xp-rank">E-RANK</div></div>
+      <div style="text-align:right"><div class="xp-lbl">TOTAL XP</div><div class="xp-level" id="xp-val" style="font-size:15px">0 XP</div></div>
+    </div>
+    <div class="xp-bg"><div class="xp-fill" id="xp-bar" style="width:0%"></div></div>
+    <div class="xp-nums"><span class="xp-cur" id="xp-cur">0 XP</span><span class="xp-max" id="xp-nxt">Next: 500 XP</span></div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="sc"><div class="slbl">Sessions</div><div class="sv green" id="stat-sessions">0</div></div>
+    <div class="sc"><div class="slbl">Pro Streak</div><div class="sv gold" id="stat-streak">0/4</div></div>
+    <div class="sc"><div class="slbl">Total XP</div><div class="sv" id="stat-xp">0</div></div>
+  </div>
+
+  <div class="stitle">DAILY QUEST</div>
+  <div id="daily-area"></div>
+
+  <div class="stitle">PROGRESS HISTORY</div>
+  <div class="chart-section">
+    <div class="chart-tabs">
+      <button class="ctab active" onclick="switchChart('xp')">XP</button>
+      <button class="ctab" onclick="switchChart('sessions')">SESSIONS</button>
+      <button class="ctab" onclick="switchChart('cardio')">CARDIO</button>
+      <button class="ctab" onclick="switchChart('progress')">STEP PROGRESS</button>
+    </div>
+    <div class="chart-wrap"><canvas id="hchart" role="img" aria-label="Progress history chart">Progress history.</canvas></div>
+    <div class="history-empty" id="hempty">[ NO DATA YET ]</div>
+  </div>
+
+  <div class="stitle">REWARDS <span class="cnt" id="badge-cnt"></span></div>
+  <div class="rewards-grid" id="rewards-grid"></div>
+
+  <div class="stitle">SERIES OVERVIEW <span class="cnt" id="act-cnt"></span></div>
+  <div id="series-area"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// ─── SERIES DATA (unchanged) ─────────────────────────────────────────────────
+const SERIES=[
+  {id:'pushup',name:'PUSH — ONE-ARM PUSH-UP',cat:'PUSH SERIES',steps:[
+    {n:'Wall Push-Up',      d:"Stand arm's length from wall, lean and push.", beg:'3x20',int:'3x35',pro:'3x50',xp:50},
+    {n:'Incline Push-Up',   d:'Hands on surface at waist height.',            beg:'3x15',int:'3x28',pro:'3x40',xp:75},
+    {n:'Kneeling Push-Up',  d:'Full push-up form from knees.',                beg:'3x12',int:'3x22',pro:'3x30',xp:100},
+    {n:'Half Push-Up',      d:'Full form, lower only halfway.',                beg:'2x10',int:'2x18',pro:'2x25',xp:125},
+    {n:'Full Push-Up',      d:'Chest to floor, full range of motion.',         beg:'2x8', int:'2x14',pro:'2x20',xp:150},
+    {n:'Close Push-Up',     d:'Hands close together. Tricep focus.',           beg:'2x8', int:'2x14',pro:'2x20',xp:200},
+    {n:'Uneven Push-Up',    d:'One hand on ball. Shift load each set.',        beg:'2x8', int:'2x14',pro:'2x20 ea',xp:275},
+    {n:'Half One-Arm PU',   d:'One arm, half depth. Free hand on thigh.',      beg:'2x8', int:'2x14',pro:'2x20 ea',xp:375},
+    {n:'Lever Push-Up',     d:'Full one-arm, other hand on ball.',             beg:'2x8', int:'2x14',pro:'2x20 ea',xp:500},
+    {n:'One-Arm Push-Up',   d:'Chest to floor, one arm only.',                 beg:'1x20',int:'1x60',pro:'1x100 ea',xp:750},
+  ]},
+  {id:'squat',name:'LEGS — PISTOL SQUAT',cat:'SQUAT SERIES',steps:[
+    {n:'Shoulderstand Squat',d:'Legs in air, bend and extend. Prehab.',      beg:'3x20',int:'3x35',pro:'3x50',xp:50},
+    {n:'Jackknife Squat',    d:'Hands on shins for assist. Full depth.',       beg:'3x15',int:'3x28',pro:'3x40',xp:75},
+    {n:'Supported Squat',    d:'Both hands on support, ass to grass.',         beg:'3x12',int:'3x22',pro:'3x30',xp:100},
+    {n:'Half Squat',         d:'Free squat to parallel. Build the pattern.',   beg:'2x20',int:'2x35',pro:'2x50',xp:125},
+    {n:'Full Squat',         d:'Ass to grass, heels flat.',                    beg:'2x12',int:'2x22',pro:'2x30',xp:175},
+    {n:'Close Squat',        d:'Heels together, full depth.',                  beg:'2x12',int:'2x22',pro:'2x30',xp:250},
+    {n:'Uneven Squat',       d:'One foot on ball, other on floor.',            beg:'2x8', int:'2x14',pro:'2x20 ea',xp:350},
+    {n:'Half Pistol',        d:'One leg, hand support, halfway down.',         beg:'2x8', int:'2x14',pro:'2x20 ea',xp:500},
+    {n:'Assisted Pistol',    d:'Full pistol with light hand support.',         beg:'2x5', int:'2x10',pro:'2x15 ea',xp:700},
+    {n:'Pistol Squat',       d:'The king. Full pistol, zero assist.',          beg:'2x10',int:'2x30',pro:'2x50 ea',xp:1000},
+  ]},
+  {id:'pullup',name:'PULL — ONE-ARM PULL-UP',cat:'PULL SERIES',steps:[
+    {n:'Vertical Pull',      d:'Door frame pull — lean back, pull torso in.', beg:'3x15',int:'3x28',pro:'3x40',xp:50},
+    {n:'Horizontal Pull',    d:'Lying row under low bar or table.',            beg:'3x12',int:'3x22',pro:'3x30',xp:75},
+    {n:'Jackknife Pull',     d:'Foot-assisted pull-up.',                       beg:'2x8', int:'2x14',pro:'2x20',xp:100},
+    {n:'Half Pull-Up',       d:'Pull halfway up from dead hang.',              beg:'2x6', int:'2x10',pro:'2x15',xp:150},
+    {n:'Full Pull-Up',       d:'Dead hang to chin over bar.',                  beg:'2x4', int:'2x7', pro:'2x10',xp:200},
+    {n:'Close Pull-Up',      d:'Hands touching. More bicep activation.',       beg:'2x4', int:'2x7', pro:'2x10',xp:275},
+    {n:'Uneven Pull-Up',     d:'One hand lower. Shift the load.',              beg:'2x3', int:'2x6', pro:'2x9 ea',xp:400},
+    {n:'Half One-Arm PU',    d:'One arm, other on wrist. Half range.',         beg:'2x3', int:'2x5', pro:'2x8 ea',xp:600},
+    {n:'Assisted One-Arm PU',d:'One arm, other hand on towel.',               beg:'2x3', int:'2x5', pro:'2x7 ea',xp:850},
+    {n:'One-Arm Pull-Up',    d:'The Holy Grail. One arm only.',                beg:'1x2', int:'2x4', pro:'2x6 ea',xp:1200},
+  ]},
+  {id:'legraise',name:'CORE — WINDSHIELD WIPERS',cat:'LEG RAISE SERIES',steps:[
+    {n:'Lying Knee Tuck',    d:'Lying flat, pull both knees to chest.',       beg:'3x20',int:'3x35',pro:'3x50',xp:50},
+    {n:'Flat Bent Leg Raise',d:'Raise bent knees to 90 degrees.',             beg:'3x15',int:'3x28',pro:'3x40',xp:75},
+    {n:'Flat Frog Raise',    d:'Raise legs with knees bent out like frog.',    beg:'3x15',int:'3x28',pro:'3x40',xp:100},
+    {n:'Flat Str. Leg Raise',d:'Legs straight, raise to vertical.',            beg:'2x8', int:'2x14',pro:'2x20',xp:150},
+    {n:'Hanging Knee Raise', d:'Dead hang, pull knees to chest.',              beg:'2x5', int:'2x10',pro:'2x15',xp:200},
+    {n:'Hanging Bent Raise', d:'Dead hang, raise knees to 90 degrees.',        beg:'2x5', int:'2x10',pro:'2x15',xp:275},
+    {n:'Hanging Frog Raise', d:'Dead hang, frog legs raise.',                  beg:'2x5', int:'2x10',pro:'2x15',xp:375},
+    {n:'Hanging Part. Raise',d:'Dead hang, straight legs halfway.',            beg:'2x5', int:'2x10',pro:'2x15',xp:500},
+    {n:'Hanging Str. Raise', d:'Full raise to bar level. Iron abs.',           beg:'2x5', int:'2x10',pro:'2x15',xp:700},
+    {n:'Windshield Wipers',  d:'Legs to bar, rotate side to side.',            beg:'2x8', int:'2x18',pro:'2x30',xp:1000},
+  ]},
+  {id:'bridge',name:'SPINE — STAND-TO-STAND BRIDGE',cat:'BRIDGE SERIES',steps:[
+    {n:'Short Bridge',       d:'Lie flat, feet flat, push hips to ceiling.',  beg:'3x20',int:'3x35',pro:'3x50',xp:50},
+    {n:'Straight Bridge',    d:'Hands behind, straight body, push hips up.',   beg:'3x15',int:'3x28',pro:'3x40',xp:75},
+    {n:'Angled Bridge',      d:'Hands on raised surface behind. Arch up.',     beg:'3x12',int:'3x22',pro:'3x30',xp:100},
+    {n:'Head Bridge',        d:'Full back bend with head on floor.',            beg:'2x10',int:'2x18',pro:'2x25',xp:150},
+    {n:'Half Bridge',        d:'Hands on floor, arch halfway up.',             beg:'2x8', int:'2x14',pro:'2x20',xp:200},
+    {n:'Full Bridge',        d:'Complete gymnastic back bridge.',               beg:'2x6', int:'2x10',pro:'2x15',xp:300},
+    {n:'Wall Walk Down',     d:'Walk hands down wall from standing.',          beg:'2x4', int:'2x7', pro:'2x10',xp:400},
+    {n:'Wall Walk Up',       d:'Walk hands up wall from bridge.',               beg:'2x3', int:'2x5', pro:'2x8',xp:550},
+    {n:'Closing Bridge',     d:'From standing, bridge down and back up.',       beg:'2x2', int:'2x4', pro:'2x6',xp:750},
+    {n:'Stand-to-Stand',     d:'Continuous stand-bridge-stand, no wall.',       beg:'2x8', int:'2x18',pro:'2x30',xp:1000},
+  ]},
+  {id:'headstand',name:'VERTICAL — HANDSTAND PUSH-UP',cat:'VERTICAL PUSH',steps:[
+    {n:'Wall Headstand',     d:'Inverted balance against wall. Hold for time.',beg:'30s', int:'1min',pro:'2min',xp:50},
+    {n:'Crow Stand',         d:'Knees on triceps. Balance and core.',          beg:'20s', int:'40s', pro:'1min',xp:75},
+    {n:'Wall Handstand',     d:'Full inverted balance against wall.',           beg:'30s', int:'1min',pro:'2min',xp:125},
+    {n:'Half HSPU',          d:'From wall handstand, lower halfway.',           beg:'2x8', int:'2x14',pro:'2x20',xp:200},
+    {n:'Handstand Push-Up',  d:'Full range from wall handstand.',               beg:'2x6', int:'2x10',pro:'2x15',xp:300},
+    {n:'Close HSPU',         d:'Narrow hand placement.',                        beg:'2x5', int:'2x8', pro:'2x12',xp:400},
+    {n:'Uneven HSPU',        d:'One hand elevated.',                            beg:'2x4', int:'2x7', pro:'2x10 ea',xp:550},
+    {n:'Half One-Arm HSPU',  d:'One arm, partial depth.',                       beg:'2x3', int:'2x5', pro:'2x8 ea',xp:700},
+    {n:'Lever HSPU',         d:'Other hand on ball for partial support.',       beg:'2x2', int:'2x4', pro:'2x6 ea',xp:900},
+    {n:'One-Arm HSPU',       d:'The pinnacle of pressing power.',               beg:'1x1', int:'1x3', pro:'1x5 ea',xp:1200},
+  ]},
+];
+
+const RANKS=[
+  {name:'E-RANK',xp:0,color:'#aaa'},{name:'D-RANK',xp:500,color:'#4dfa7a'},
+  {name:'C-RANK',xp:1500,color:'#4dc8ff'},{name:'B-RANK',xp:3500,color:'#a855f7'},
+  {name:'A-RANK',xp:7000,color:'#ff9f0a'},{name:'S-RANK',xp:13000,color:'#f5c842'},
+];
+const TIER_ORDER=['beg','int','pro'];
+
+const BADGES=[
+  {id:'first_blood',  icon:'&#9889;', name:'FIRST BLOOD',    desc:'Complete your first session',        check:s=>totalSessions(s)>=1},
+  {id:'week_one',     icon:'&#128197;',name:'WEEK ONE',       desc:'Complete 7 sessions',                check:s=>totalSessions(s)>=7},
+  {id:'iron_will',    icon:'&#128248;',name:'IRON WILL',      desc:'Complete 30 sessions',               check:s=>totalSessions(s)>=30},
+  {id:'centurion',    icon:'&#127942;',name:'CENTURION',      desc:'Complete 100 sessions',              check:s=>totalSessions(s)>=100},
+  {id:'d_rank',       icon:'&#128154;',name:'D-RANK HUNTER',  desc:'Reach D-Rank (500 XP)',              check:s=>(s.xp||0)>=500},
+  {id:'c_rank',       icon:'&#128153;',name:'C-RANK HUNTER',  desc:'Reach C-Rank (1500 XP)',             check:s=>(s.xp||0)>=1500},
+  {id:'b_rank',       icon:'&#128156;',name:'B-RANK HUNTER',  desc:'Reach B-Rank (3500 XP)',             check:s=>(s.xp||0)>=3500},
+  {id:'a_rank',       icon:'&#128159;',name:'A-RANK HUNTER',  desc:'Reach A-Rank (7000 XP)',             check:s=>(s.xp||0)>=7000},
+  {id:'s_rank',       icon:'&#11088;', name:'S-RANK HUNTER',  desc:'Reach S-Rank (13000 XP)',            check:s=>(s.xp||0)>=13000},
+  {id:'push_adept',   icon:'&#128170;',name:'PUSH ADEPT',     desc:'Reach step 5 in Push series',        check:s=>(s.currentSteps.pushup||0)>=4},
+  {id:'push_master',  icon:'&#9992;',  name:'PUSH MASTER',    desc:'Reach step 8 in Push series',        check:s=>(s.currentSteps.pushup||0)>=7},
+  {id:'iron_legs',    icon:'&#9889;',  name:'IRON LEGS',      desc:'Reach step 5 in Squat series',       check:s=>(s.currentSteps.squat||0)>=4},
+  {id:'pull_adept',   icon:'&#128058;',name:'PULL ADEPT',     desc:'Reach step 5 in Pull series',        check:s=>(s.currentSteps.pullup||0)>=4},
+  {id:'core_adept',   icon:'&#127946;',name:'CORE ADEPT',     desc:'Reach step 5 in Core series',        check:s=>(s.currentSteps.legraise||0)>=4},
+  {id:'spine_adept',  icon:'&#127793;',name:'SPINE ADEPT',    desc:'Reach step 5 in Bridge series',      check:s=>(s.currentSteps.bridge||0)>=4},
+  {id:'vertical_adept',icon:'&#128640;',name:'VERTICAL ADEPT',desc:'Reach step 5 in Vertical series',   check:s=>(s.currentSteps.headstand||0)>=4},
+  {id:'runner_init',  icon:'&#128099;',name:'RUNNER INIT',    desc:'Complete cardio 5 times',            check:s=>cardioCount(s)>=5},
+  {id:'runner_adept', icon:'&#128099;',name:'RUNNER ADEPT',   desc:'Complete cardio 20 times',           check:s=>cardioCount(s)>=20},
+  {id:'survivor',     icon:'&#128737;',name:'SURVIVOR',       desc:'Survive a penalty and come back',    check:s=>(s.penaltyCount||0)>=1},
+  {id:'recovered',    icon:'&#128293;',name:'RECOVERED',      desc:'Complete a full recovery week',      check:s=>(s.recoveryCompleted||0)>=1},
+  {id:'perfectionist',icon:'&#127919;',name:'PERFECTIONIST',  desc:'Hit pro standard across all series', check:s=>SERIES.every(ser=>(s.proStreak[ser.id]||0)>=1)},
+  {id:'all_series',   icon:'&#127775;',name:'FULL HUNTER',    desc:'Reach step 3+ in all 6 series',      check:s=>SERIES.every(ser=>(s.currentSteps[ser.id]||0)>=2)},
+];
+
+function totalSessions(s){return(s.history||[]).filter(h=>h.completed).length;}
+function cardioCount(s){return(s.history||[]).filter(h=>h.cardioResult==='tick').length;}
+
+// ─── SCHEDULE HELPERS ─────────────────────────────────────────────────────────
+// Training days: Mon=1, Wed=3, Fri=5
+// Recovery mode: every weekday (Mon-Fri)
+function getDayOfWeek(dayIdx){
+  // dayIdx 0 = Jan 1 1970, which was a Thursday (4)
+  return (dayIdx+4)%7; // 0=Sun,1=Mon,...,6=Sat
+}
+function isRegularTrainingDay(dayIdx){
+  const dow=getDayOfWeek(dayIdx);
+  return dow===1||dow===3||dow===5; // Mon,Wed,Fri
+}
+function isRecoveryTrainingDay(dayIdx){
+  const dow=getDayOfWeek(dayIdx);
+  return dow>=1&&dow<=5; // Mon-Fri
+}
+function isSessionDay(dayIdx,recoveryMode){
+  return recoveryMode?isRecoveryTrainingDay(dayIdx):isRegularTrainingDay(dayIdx);
+}
+
+// Half-rep version of a standard string like "3x20" -> "3x10"
+function halfReps(std){
+  return std.replace(/(\d+)x(\d+)/g,(m,sets,reps)=>sets+'x'+Math.ceil(parseInt(reps)/2));
+}
+
+// ─── STATE ────────────────────────────────────────────────────────────────────
+// recoveryMode: bool — if true, weekday sessions at half reps
+// recoveryWeekStart: dayIdx of when recovery started
+// recoveryDaysCompleted: number of consecutive weekdays done (need 5)
+// recoveryFailedSeries: {sid: true} — which series failed first attempt at new tier
+// firstAttemptAtTier: {sid: true} — tracking if this is first ever attempt at current tier
+let state=JSON.parse(localStorage.getItem('solo-grind-v6')||'null')||{initialized:false};
+function save(){localStorage.setItem('solo-grind-v6',JSON.stringify(state));}
+
+function nowStr(){
+  const d=new Date();
+  return (d.getMonth()+1)+'/'+(d.getDate())+' '+d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
+}
+function todayIdx(){const d=new Date();return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/86400000);}
+
+function syncDay(){
+  const ti=todayIdx(),d=state.daily;
+  if(d.lastDayIndex===ti)return;
+  const prevIdx=d.lastDayIndex;
+  const prevWasSession=prevIdx!==null&&isSessionDay(prevIdx,state.recoveryMode||false);
+  const daysSinceLast=prevIdx!==null?ti-prevIdx:0;
+
+  // Check missed session penalty (only for regular mode, Mon/Wed/Fri)
+  if(prevWasSession&&!state.recoveryMode&&daysSinceLast>=2&&!d.lastSessionCompleted){
+    // Count how many Mon/Wed/Fri were missed
+    let missedCount=0;
+    for(let i=1;i<daysSinceLast;i++){
+      if(isRegularTrainingDay(prevIdx+i)) missedCount++;
+    }
+    if(missedCount>0) _pendingPenalty=missedCount;
+  }
+
+  // If recovery mode: check if a recovery session was missed
+  if(state.recoveryMode&&prevWasSession&&!d.lastSessionCompleted){
+    // Reset recovery streak
+    state.recoveryDaysCompleted=0;
+    save();
+  }
+
+  d.todayResults={};
+  d.cardio={km:d.cardio?d.cardio.km:1,result:null,distChoice:null};
+  d.dayDone=false;
+  d.isTraining=isSessionDay(ti,state.recoveryMode||false);
+  d.lastDayIndex=ti;
+  d.lastSessionCompleted=false;
+  save();
+}
+
+let _pendingPenalty=0;
+function getRank(xp){let r=RANKS[0];for(const x of RANKS){if(xp>=x.xp)r=x;}return r;}
+function getNextRank(xp){for(const x of RANKS){if(xp<x.xp)return x;}return null;}
+
+// ─── SETUP ────────────────────────────────────────────────────────────────────
+const _sel={};
+function buildSetup(){
+  const c=document.getElementById('setup-list');c.innerHTML='';
+  SERIES.forEach(s=>{_sel[s.id]=0;});
+  SERIES.forEach(s=>{
+    const d=document.createElement('div');d.className='setup-ser';
+    d.innerHTML='<div class="setup-sname">'+s.name+'</div><div class="setup-scat">'+s.cat+'</div><div class="setup-sblist" id="sl-'+s.id+'"></div>';
+    c.appendChild(d);
+    const bl=d.querySelector('#sl-'+s.id);
+    s.steps.forEach((step,i)=>{
+      const b=document.createElement('button');b.className='ssb'+(i===0?' sel':'');
+      b.innerHTML='<div class="ssbn">'+(i+1)+'</div><div class="ssbi"><div class="ssbname">'+step.n+'</div><div class="ssbstd">BEG: '+step.beg+' | INT: '+step.int+' | PRO: '+step.pro+'</div></div>';
+      b.onclick=()=>{_sel[s.id]=i;bl.querySelectorAll('.ssb').forEach((x,j)=>x.classList.toggle('sel',j===i));};
+      bl.appendChild(b);
+    });
+  });
+}
+
+function confirmSetup(){
+  const ti=todayIdx();
+  state={
+    initialized:true,xp:0,
+    currentSteps:Object.fromEntries(SERIES.map(s=>[s.id,_sel[s.id]])),
+    tierLevel:Object.fromEntries(SERIES.map(s=>[s.id,0])),
+    tierStreak:Object.fromEntries(SERIES.map(s=>[s.id,0])),    // streak at current tier (resets on failure)
+    proStreak:Object.fromEntries(SERIES.map(s=>[s.id,0])),     // consecutive months at PRO
+    firstAttemptAtTier:Object.fromEntries(SERIES.map(s=>[s.id,true])),  // true = never passed this tier
+    recoveryMode:false,
+    recoveryDaysCompleted:0,
+    recoveryWeekStart:null,
+    recoveryFailedSeries:{},
+    recoveryCompleted:0,
+    unlockedBadges:[],penaltyCount:0,
+    history:[],
+    sessionCalendar:{}, // dayIdx -> 'done'|'missed'|'recovery-done'|'recovery-missed'
+    monthStart:ti, // day we started current advance-month tracking
+    monthSessions:0, // regular sessions completed this month
+    daily:{
+      anchorDay:ti,lastDayIndex:null,
+      dayDone:false,isTraining:true,
+      graceDays:1,lastSessionCompleted:false,
+      todayResults:{},cardio:{km:1,result:null,distChoice:null}
+    }
+  };
+  save();launch();
+}
+
+// ─── LAUNCH ───────────────────────────────────────────────────────────────────
+function launch(){
+  document.getElementById('setup').classList.add('gone');
+  document.getElementById('app').style.display='';
+  syncDay();render();
+  if(_pendingPenalty>0){const n=_pendingPenalty;_pendingPenalty=0;setTimeout(()=>applyPenalty(n),600);}
+}
+
+// ─── INTERACTIONS ─────────────────────────────────────────────────────────────
+function setResult(sid,result){
+  if(state.daily.dayDone)return;
+  const r=state.daily.todayResults;
+  r[sid]=r[sid]===result?null:result;
+  save();renderDaily();
+}
+function setCardioResult(result){
+  if(state.daily.dayDone)return;
+  const c=state.daily.cardio;
+  c.result=c.result===result?null:result;
+  save();renderDaily();
+}
+function setCardioDistChoice(choice){
+  if(state.daily.dayDone)return;
+  state.daily.cardio.distChoice=state.daily.cardio.distChoice===choice?null:choice;
+  save();renderDaily();
+}
+function canSubmit(){return SERIES.every(s=>state.daily.todayResults[s.id]!=null);}
+
+function logSession(){
+  const d=state.daily;
+  if(d.dayDone||!canSubmit())return;
+  const prevXP=state.xp,prevRank=getRank(prevXP);
+  const prevBadges=[...state.unlockedBadges];
+  const ti=todayIdx();
+  let triggerRecovery=false;
+  let recoverySeriesNames=[];
+
+  if(state.recoveryMode){
+    // Recovery session: half reps. Count if all ticked
+    const allTick=SERIES.every(s=>d.todayResults[s.id]==='tick');
+    if(allTick){
+      state.recoveryDaysCompleted=(state.recoveryDaysCompleted||0)+1;
+      state.sessionCalendar[ti]='recovery-done';
+      state.xp+=50; // small XP for recovery session
+      if(state.recoveryDaysCompleted>=5){
+        // Recovery complete!
+        state.recoveryMode=false;
+        state.recoveryDaysCompleted=0;
+        state.recoveryFailedSeries={};
+        state.recoveryCompleted=(state.recoveryCompleted||0)+1;
+        // Reset first-attempt flags for series that were in recovery
+        SERIES.forEach(s=>{state.firstAttemptAtTier[s.id]=true;});
+        setTimeout(()=>{
+          document.getElementById('sc-sub').textContent='RECOVERY COMPLETE';
+          document.getElementById('sc-body').textContent='Full capacity restored. Regular Mon/Wed/Fri training resumes.';
+          showOv('ov-session');
+        },300);
+      } else {
+        const left=5-state.recoveryDaysCompleted;
+        setTimeout(()=>{
+          document.getElementById('sc-sub').textContent='RECOVERY DAY '+state.recoveryDaysCompleted+'/5';
+          document.getElementById('sc-body').textContent=left+' more consecutive weekday session'+(left>1?'s':'')+' to restore full capacity.';
+          showOv('ov-session');
+        },300);
+      }
+    } else {
+      // Failed recovery session — reset streak
+      state.recoveryDaysCompleted=0;
+      state.sessionCalendar[ti]='recovery-missed';
+      setTimeout(()=>{
+        document.getElementById('sc-sub').textContent='RECOVERY FAILED';
+        document.getElementById('sc-body').textContent='Streak reset. Continue weekday recovery sessions to restore capacity.';
+        showOv('ov-session');
+      },300);
+    }
+  } else {
+    // Regular session
+    SERIES.forEach(s=>{
+      const ticked=d.todayResults[s.id]==='tick';
+      const tier=state.tierLevel[s.id]||0;
+      const isFirst=state.firstAttemptAtTier[s.id];
+
+      if(ticked){
+        const idx=state.currentSteps[s.id];
+        if(idx<s.steps.length) state.xp+=(s.steps[idx].xp||0);
+        state.tierStreak[s.id]=(state.tierStreak[s.id]||0)+1;
+        if(tier===2) state.proStreak[s.id]=(state.proStreak[s.id]||0)+1;
+        state.firstAttemptAtTier[s.id]=false; // no longer first attempt
+        // Promote tier if 4 consecutive and not yet pro
+        if((state.tierStreak[s.id]||0)>=4&&tier<2){
+          state.tierLevel[s.id]=tier+1;
+          state.tierStreak[s.id]=0;
+          state.firstAttemptAtTier[s.id]=true; // new tier = new first attempt
+        }
+      } else {
+        // Failed
+        if(isFirst&&tier>0){
+          // First attempt at new tier (int or pro) failed → trigger recovery for this series
+          triggerRecovery=true;
+          state.recoveryFailedSeries[s.id]=true;
+          recoverySeriesNames.push(s.cat);
+        }
+        state.tierStreak[s.id]=0;
+        if(tier===2) state.proStreak[s.id]=0;
+      }
+    });
+
+    // Month tracking for advance
+    state.monthSessions=(state.monthSessions||0)+1;
+    state.sessionCalendar[ti]='done';
+
+    // Check advance: 1 full month of sessions (approx 12-13 Mon/Wed/Fri = 4 weeks)
+    // We use 12 sessions as "1 month" (4 weeks x 3 days)
+    const allPro=SERIES.every(s=>(state.proStreak[s.id]||0)>=1&&state.tierLevel[s.id]===2);
+    if(state.monthSessions>=12&&allPro) d.needsAdvance=true;
+
+    // Cardio XP
+    let cardioXP=0;
+    const c=d.cardio;
+    if(c.result==='tick'){
+      cardioXP=Math.round(50+c.km*10);
+      state.xp+=cardioXP;
+      if(c.distChoice==='up') c.km=(c.km||1)+1;
+    }
+
+    // Record history
+    if(!state.history)state.history=[];
+    state.history.push({
+      ts:nowStr(),dayIdx:ti,xp:state.xp,completed:true,
+      cardioKm:c.result==='tick'?c.km:0,cardioResult:c.result,cardioXP,
+      results:JSON.parse(JSON.stringify(d.todayResults)),
+      stepSnapshot:Object.assign({},state.currentSteps),
+      tierSnapshot:Object.assign({},state.tierLevel),
+      recoveryMode:false
+    });
+    if(state.history.length>200)state.history=state.history.slice(-200);
+
+    // Grace day every 7 sessions
+    const totalSess=totalSessions(state);
+    if(totalSess>0&&totalSess%7===0) d.graceDays=(d.graceDays||0)+1;
+  }
+
+  d.dayDone=true;
+  d.lastSessionCompleted=true;
+  checkBadges(prevBadges);
+  save();
+
+  const newRank=getRank(state.xp);
+  render();
+
+  if(d.needsAdvance){setTimeout(()=>showOv('ov-advance'),500);}
+
+  if(triggerRecovery&&!state.recoveryMode){
+    state.recoveryMode=true;
+    state.recoveryDaysCompleted=0;
+    state.recoveryWeekStart=ti;
+    save();
+    setTimeout(()=>{
+      document.getElementById('rec-sub').textContent='First attempt at new standard failed: '+recoverySeriesNames.join(', ');
+      document.getElementById('rec-body').textContent='Recovery protocol initiated. Complete 5 consecutive weekday sessions at HALF REPS for the failed exercises. All other exercises remain at full standard. Consecutive success restores full training.';
+      showOv('ov-recovery');
+    },800);
+  }
+
+  if(newRank.name!==prevRank.name){
+    setTimeout(()=>{document.getElementById('rank-title').textContent=newRank.name;showOv('ov-rank');},1200);
+  }
+}
+
+let _badgeQueue=[];
+let _badgeShowing=false;
+
+function checkBadges(prevBadges){
+  const newBadges=[];
+  BADGES.forEach(b=>{
+    if(!prevBadges.includes(b.id)&&!state.unlockedBadges.includes(b.id)&&b.check(state)){
+      state.unlockedBadges.push(b.id);
+      newBadges.push(b);
+    }
+  });
+  if(newBadges.length>0){
+    _badgeQueue.push(...newBadges);
+    setTimeout(()=>drainBadgeQueue(),1900);
+  }
+}
+
+function drainBadgeQueue(){
+  if(_badgeShowing||_badgeQueue.length===0)return;
+  _badgeShowing=true;
+  const badge=_badgeQueue.shift();
+  showBadgePopup(badge,true);
+}
+
+function closeBadgeOv(){
+  closeOv('ov-badge');
+  stopBadgeParticles();
+  _badgeShowing=false;
+  // If more badges queued, show next after short delay
+  if(_badgeQueue.length>0){
+    setTimeout(()=>drainBadgeQueue(),500);
+  }
+}
+
+const BADGE_FLAVORS={
+  first_blood:'The journey of a thousand miles begins with a single step.',
+  week_one:'Seven days. The System has taken notice.',
+  iron_will:'Thirty sessions. Most would have quit by now.',
+  centurion:'One hundred. You are no longer the person who started.',
+  d_rank:'The weakest hunters once stood exactly where you are.',
+  c_rank:'The System acknowledges your progress.',
+  b_rank:'Above average. But the peak is still far.',
+  a_rank:'Few reach this level. Most never try.',
+  s_rank:'The System recognises a true hunter.',
+  push_adept:'Your pushing strength has awakened.',
+  push_master:'Approaching the one-arm standard.',
+  iron_legs:'Legs forged from discipline.',
+  pull_adept:'Your pulling strength grows.',
+  core_adept:'The core holds everything together.',
+  spine_adept:'A flexible spine is an invincible one.',
+  vertical_adept:'Defying gravity, one rep at a time.',
+  runner_init:'The first km is always the hardest.',
+  runner_adept:'The road has become familiar.',
+  survivor:'You fell. You got up. That is everything.',
+  recovered:'Five days of rebuilding. Stronger than before.',
+  perfectionist:'All standards met. The System is satisfied.',
+  all_series:'Six disciplines. One body. Unlimited potential.',
+};
+
+let _badgeParticles=null;
+function showBadgePopup(badge,isNew){
+  document.getElementById('bu-icon').innerHTML=badge.icon;
+  const ic=document.getElementById('bu-icon');
+  ic.style.animation='none';
+  ic.offsetHeight;
+  ic.style.animation='badgePop .5s cubic-bezier(.34,1.56,.64,1)';
+  document.getElementById('bu-name').textContent=badge.name;
+  document.getElementById('bu-desc').textContent=badge.desc;
+  document.getElementById('bu-flavor').textContent=BADGE_FLAVORS[badge.id]||'';
+  // Show claim button only on new unlock, hide when just viewing
+  const btns=document.querySelector('#ov-badge .mbtns');
+  btns.style.display=isNew?'flex':'none';
+  // Show a close tap area when just viewing
+  let viewClose=document.getElementById('bu-view-close');
+  if(!viewClose){
+    viewClose=document.createElement('div');
+    viewClose.id='bu-view-close';
+    viewClose.style.cssText='font-family:"Share Tech Mono",monospace;font-size:8px;letter-spacing:3px;color:var(--muted);margin-top:8px;cursor:pointer;padding:8px';
+    viewClose.textContent='[ TAP TO CLOSE ]';
+    viewClose.onclick=()=>{closeOv('ov-badge');};
+    document.querySelector('#ov-badge .mbox').appendChild(viewClose);
+  }
+  viewClose.style.display=isNew?'none':'block';
+  showOv('ov-badge');
+  if(isNew) startBadgeParticles();
+}
+
+function closeBadgeOv(){
+  closeOv('ov-badge');
+  stopBadgeParticles();
+}
+
+function startBadgeParticles(){
+  const cv=document.getElementById('badge-particles');
+  cv.width=window.innerWidth;cv.height=window.innerHeight;
+  const ctx=cv.getContext('2d');
+  const pts=[];
+  const colors=['#f5c842','#0af','#00ffaa','#ff9f0a','#fff','#a855f7'];
+  for(let i=0;i<80;i++){
+    const angle=Math.random()*Math.PI*2;
+    const spd=Math.random()*6+2;
+    pts.push({
+      x:cv.width/2,y:cv.height/2,
+      vx:Math.cos(angle)*spd,vy:Math.sin(angle)*spd-3,
+      size:Math.random()*4+2,
+      color:colors[Math.floor(Math.random()*colors.length)],
+      life:1,decay:Math.random()*.012+.008,
+      rot:Math.random()*Math.PI*2,rotv:(Math.random()-.5)*.2
+    });
+  }
+  let running=true;
+  _badgeParticles=()=>running=false;
+  function loop(){
+    if(!running){ctx.clearRect(0,0,cv.width,cv.height);return;}
+    ctx.clearRect(0,0,cv.width,cv.height);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.vy+=.1;p.life-=p.decay;p.rot+=p.rotv;
+      if(p.life<=0)return;
+      ctx.globalAlpha=p.life;
+      ctx.fillStyle=p.color;
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);
+      ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size);
+      ctx.restore();
+    });
+    ctx.globalAlpha=1;
+    if(pts.some(p=>p.life>0)) requestAnimationFrame(loop);
+    else ctx.clearRect(0,0,cv.width,cv.height);
+  }
+  loop();
+}
+function stopBadgeParticles(){
+  if(_badgeParticles){_badgeParticles();_badgeParticles=null;}
+  const cv=document.getElementById('badge-particles');
+  if(cv)cv.getContext('2d').clearRect(0,0,cv.width,cv.height);
+}
+
+function advanceStep(){
+  closeOv('ov-advance');
+  SERIES.forEach(s=>{
+    if(state.currentSteps[s.id]<s.steps.length-1)state.currentSteps[s.id]++;
+    state.proStreak[s.id]=0;
+    state.tierLevel[s.id]=0;
+    state.tierStreak[s.id]=0;
+    state.firstAttemptAtTier[s.id]=true;
+  });
+  state.monthSessions=0;
+  state.monthStart=todayIdx();
+  state.daily.needsAdvance=false;
+  state.daily.todayResults={};state.daily.dayDone=false;
+  save();render();
+}
+function keepStep(){
+  closeOv('ov-advance');
+  SERIES.forEach(s=>{state.proStreak[s.id]=0;});
+  state.monthSessions=0;
+  state.monthStart=todayIdx();
+  state.daily.needsAdvance=false;
+  state.daily.todayResults={};state.daily.dayDone=false;
+  save();render();
+}
+
+// ─── PENALTY ──────────────────────────────────────────────────────────────────
+function applyPenalty(missedCount){
+  const d=state.daily;
+  const hasGrace=(d.graceDays||0)>0;
+  const titles=['WEAKNESS DETECTED','FAILURE RECORDED','YOU HAVE FALLEN'];
+  document.getElementById('pen-title').innerHTML=titles[Math.min(missedCount-1,2)];
+  document.getElementById('pen-sub').textContent='Missed '+missedCount+' training day'+(missedCount>1?'s':'')+'.';
+  let info='';
+  if(!hasGrace){
+    if(missedCount>=1){
+      const loss=SERIES.reduce((a,s)=>{const i=state.currentSteps[s.id];return a+(i<s.steps.length?s.steps[i].xp:0);},0);
+      state.xp=Math.max(0,(state.xp||0)-loss);
+      info+='XP PENALTY: -'+loss+' XP\n';
+      state.penaltyCount=(state.penaltyCount||0)+1;
+    }
+    if(missedCount>=2){
+      SERIES.forEach(s=>{if(state.currentSteps[s.id]>0)state.currentSteps[s.id]--;});
+      SERIES.forEach(s=>{state.proStreak[s.id]=0;state.tierLevel[s.id]=0;state.tierStreak[s.id]=0;state.firstAttemptAtTier[s.id]=true;});
+      state.monthSessions=0;
+      info+='STEP REGRESSION: all series -1 step\nMonth streak reset';
+    }
+    save();
+  } else {
+    info='GRACE DAY AVAILABLE — Invoke to avoid penalty.\nRemaining: '+d.graceDays;
+  }
+  document.getElementById('pen-info').textContent=info.trim();
+  document.getElementById('grace-btn').style.display=hasGrace?'inline-block':'none';
+  showOv('ov-penalty');
+}
+function useGrace(){state.daily.graceDays=Math.max(0,(state.daily.graceDays||0)-1);save();closeOv('ov-penalty');render();}
+function acceptPenalty(){closeOv('ov-penalty');render();}
+function showOv(id){document.getElementById(id).classList.add('show');}
+function closeOv(id){document.getElementById(id).classList.remove('show');}
+
+// ─── RENDER ───────────────────────────────────────────────────────────────────
+let expandId=null,activeChart='xp',chartInst=null;
+function toggleExpand(id){expandId=expandId===id?null:id;renderSeries();}
+function switchChart(t){
+  activeChart=t;
+  document.querySelectorAll('.ctab').forEach(b=>{
+    b.classList.toggle('active',
+      (t==='xp'&&b.textContent==='XP')||(t==='sessions'&&b.textContent==='SESSIONS')||
+      (t==='cardio'&&b.textContent==='CARDIO')||(t==='progress'&&b.textContent==='STEP PROGRESS'));
+  });
+  renderChart();
+}
+function render(){renderXP();renderDaily();renderSeries();renderStats();renderChart();renderRewards();renderWeeklyQuote();}
+
+function renderXP(){
+  const xp=state.xp||0,rank=getRank(xp),next=getNextRank(xp);
+  document.getElementById('xp-rank').textContent=rank.name;
+  document.getElementById('xp-rank').style.color=rank.color;
+  document.getElementById('xp-val').textContent=xp+' XP';
+  const pct=next?Math.min(100,((xp-rank.xp)/(next.xp-rank.xp))*100):100;
+  document.getElementById('xp-bar').style.width=pct+'%';
+  document.getElementById('xp-cur').textContent=xp+' XP';
+  document.getElementById('xp-nxt').textContent=next?'Next: '+next.xp+' XP':'MAX RANK';
+}
+function renderStats(){
+  document.getElementById('stat-sessions').textContent=totalSessions(state);
+  const ms=state.monthSessions||0;
+  document.getElementById('stat-streak').textContent=ms+'/12';
+  document.getElementById('stat-xp').textContent=state.xp||0;
+  document.querySelector('#stat-streak').previousElementSibling.textContent='Month Sessions';
+}
+
+function renderDaily(){
+  const area=document.getElementById('daily-area'),d=state.daily;
+  const ti=todayIdx();
+  const isSession=isSessionDay(ti,state.recoveryMode||false);
+
+  if(!isSession){
+    const dow=getDayOfWeek(ti);
+    const dayName=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][dow];
+    const next=state.recoveryMode?'weekday':'Mon, Wed or Fri';
+    area.innerHTML='<div class="off-day"><div class="off-icon">REST DAY</div><div class="off-txt">TODAY IS '+dayName.toUpperCase()+' — NEXT SESSION ON '+next.toUpperCase()+'</div>'+(d.graceDays>0?'<div class="off-txt" style="color:#ff9f0a;margin-top:3px">GRACE DAYS: '+d.graceDays+'</div>':'')+'</div>';
+    return;
+  }
+
+  const rm=state.recoveryMode||false;
+  const ms=state.monthSessions||0;
+  const dayDone=d.dayDone;
+
+  // Month pips (12 sessions = 1 month target)
+  const pipsHTML=Array.from({length:12},(_,i)=>{
+    if(i<ms)return '<div class="mpip done">'+String.fromCharCode(10003)+'</div>';
+    if(i===ms&&!dayDone)return '<div class="mpip today">'+(i+1)+'</div>';
+    return '<div class="mpip future">'+(i+1)+'</div>';
+  }).join('');
+
+  // Recovery banner
+  const recBanner=rm?'<div class="recovery-banner"><div class="recovery-icon">&#9888;</div><div class="recovery-text">RECOVERY PROTOCOL ACTIVE · HALF REPS · WEEKDAY SESSIONS<br>CONSECUTIVE DAYS: '+(state.recoveryDaysCompleted||0)+'/5 — COMPLETE ALL 5 TO RESTORE FULL TRAINING</div></div>':'';
+
+  // Segments
+  const segsHTML=SERIES.map(s=>{
+    const idx=state.currentSteps[s.id];
+    const step=s.steps[Math.min(idx,s.steps.length-1)];
+    const tl=state.tierLevel[s.id]||0;
+    const tKey=TIER_ORDER[tl];
+    const tCls=['beg','int','pro'][tl];
+    const tLabel=['BEGINNER','INTERMEDIATE','PROGRESSION'][tl];
+    const res=d.todayResults[s.id];
+    const ts=state.tierStreak[s.id]||0;
+    const dis=dayDone?'disabled':'';
+    // In recovery mode, failed series get half reps
+    const isRecSeries=rm&&state.recoveryFailedSeries[s.id];
+    const stdDisplay=isRecSeries?halfReps(step[tKey]):step[tKey];
+    const stdCls=isRecSeries?'seg-recovery':'seg-std-val '+tCls;
+    const streakNote=tl===2&&(state.proStreak[s.id]||0)>0?
+      '<div class="seg-pro-streak">&#9733; PRO SESSIONS: '+(state.proStreak[s.id])+'</div>':
+      ts>0?'<div class="seg-pro-streak">&#9679; '+ts+'/4 to next standard</div>':'';
+    return '<div class="seg-row">'+
+      '<div class="seg-header">'+
+        '<div><div class="seg-name">'+s.cat+'</div><div class="seg-ex">'+step.n+(isRecSeries?' [RECOVERY]':'')+'</div></div>'+
+        '<div class="seg-tier-badge '+tCls+'">'+tLabel+'</div>'+
+      '</div>'+
+      '<div class="seg-main">'+
+        '<div class="seg-std-display">'+
+          '<div class="'+stdCls+'">'+stdDisplay+'</div>'+
+          (isRecSeries?'<div class="seg-recovery-std">HALF REPS — Recovery</div>':'')+
+          streakNote+
+        '</div>'+
+        '<div class="seg-btns">'+
+          '<button class="sbtn tick'+(res==='tick'?' on':'')+'" '+dis+' onclick="setResult(\''+s.id+'\',\'tick\')">&#10003;</button>'+
+          '<button class="sbtn cross'+(res==='cross'?' on':'')+'" '+dis+' onclick="setResult(\''+s.id+'\',\'cross\')">&#10005;</button>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+
+  const c=d.cardio;
+  const cRes=c.result;
+  const dis=dayDone?'disabled':'';
+  const cardioXPAmt=Math.round(50+c.km*10);
+  const cardioHTML='<div class="cardio-row">'+
+    '<div class="cardio-left">'+
+      '<div class="cardio-title">&#9654; CARDIO — RUNNING</div>'+
+      '<div class="cardio-sub">BONUS XP: +'+cardioXPAmt+' ON COMPLETION</div>'+
+      '<div class="cardio-km">'+c.km+' KM</div>'+
+      (!dayDone?'<div class="cardio-dist-opts">'+
+        '<button class="dist-btn'+(c.distChoice==='same'?' sel':'')+'" onclick="setCardioDistChoice(\'same\')">SAME '+c.km+'KM</button>'+
+        '<button class="dist-btn'+(c.distChoice==='up'?' sel':'')+'" onclick="setCardioDistChoice(\'up\')">'+(c.km+1)+'KM NEXT &#8593;</button>'+
+      '</div>':'<div style="font-family:Share Tech Mono,monospace;font-size:7px;margin-top:3px">NEXT: '+(c.distChoice==='up'?c.km+'KM':c.km+'KM')+'</div>')+
+    '</div>'+
+    '<div class="cardio-right">'+
+      '<div class="cardio-result-btns">'+
+        '<button class="crBtn tick'+(cRes==='tick'?' on':'')+'" '+dis+' onclick="setCardioResult(\'tick\')">&#10003;</button>'+
+        '<button class="crBtn cross'+(cRes==='cross'?' on':'')+'" '+dis+' onclick="setCardioResult(\'cross\')">&#10005;</button>'+
+      '</div>'+
+      '<div style="font-family:Share Tech Mono,monospace;font-size:7px;text-align:right;margin-top:3px">'+(cRes==='tick'?'<span style="color:var(--green)">COMPLETED</span>':cRes==='cross'?'<span style="color:var(--red)">ATTEMPTED</span>':'NOT LOGGED')+'</div>'+
+    '</div>'+
+  '</div>';
+
+  const ready=canSubmit();
+  const done6=SERIES.filter(s=>d.todayResults[s.id]!=null).length;
+  area.innerHTML='<div class="daily-card">'+recBanner+
+    '<div class="daily-top">'+
+      '<div class="daily-badge">'+(rm?'RECOVERY':'DAILY QUEST')+'</div>'+
+      '<div class="daily-tw">'+
+        '<div class="daily-title">'+(rm?'RECOVERY CIRCUIT':'FULL CIRCUIT')+'</div>'+
+        '<div class="daily-sub">'+(rm?'WEEKDAY · HALF REPS FOR FAILED EXERCISES':'MON · WED · FRI')+(d.graceDays>0?' · GRACE: '+d.graceDays:'')+'</div>'+
+      '</div>'+
+      '<div class="daily-streak-wrap">'+
+        '<div class="daily-snum">'+(rm?state.recoveryDaysCompleted||0:ms)+'<span style="font-size:11px;color:var(--muted)">/'+(rm?5:12)+'</span></div>'+
+        '<div class="daily-slbl">'+(rm?'REC DAYS':'MONTH')+'</div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="month-pips">'+(rm?'':pipsHTML)+'</div>'+
+    '<div class="daily-segs">'+segsHTML+'</div>'+
+    cardioHTML+
+    '<div class="daily-foot">'+
+      '<div class="daily-prog">'+(dayDone?'SESSION LOGGED':done6+'/6 MARKED')+'</div>'+
+      '<button class="btn-log '+(dayDone?'logged':'')+'" '+(!ready||dayDone?'disabled':'')+' onclick="logSession()">'+(dayDone?'&#10003; LOGGED':'LOG SESSION')+'</button>'+
+    '</div>'+
+  '</div>';
+}
+
+function renderChart(){
+  const hist=state.history||[];
+  const empty=document.getElementById('hempty');
+  const canvas=document.getElementById('hchart');
+  if(hist.length===0){empty.style.display='block';canvas.style.display='none';return;}
+  empty.style.display='none';canvas.style.display='block';
+  if(chartInst){try{chartInst.destroy();}catch(e){}chartInst=null;}
+
+  const labels=hist.map(h=>h.ts||'');
+  let datasets,type='line';
+  const colors=['#0af','#f5c842','#00ffaa','#a855f7','#ff9f0a','#ff3355'];
+
+  if(activeChart==='xp'){
+    datasets=[{label:'Total XP',data:hist.map(h=>h.xp),borderColor:'#f5c842',backgroundColor:'rgba(245,200,66,.08)',fill:true,tension:.3,pointRadius:3,pointBackgroundColor:'#f5c842'}];
+  } else if(activeChart==='sessions'){
+    const cum=hist.reduce((a,h,i)=>{a.push((a[i-1]||0)+(h.completed?1:0));return a;},[]);
+    datasets=[{label:'Sessions',data:cum,borderColor:'#00ffaa',backgroundColor:'rgba(0,255,170,.08)',fill:true,tension:.3,pointRadius:3,pointBackgroundColor:'#00ffaa'}];
+  } else if(activeChart==='cardio'){
+    // Line graph: only plot sessions where cardio was logged (tick or cross)
+    const cardioHist=hist.filter(h=>h.cardioResult!=null);
+    const cardioLabels=cardioHist.map(h=>h.ts||'');
+    const cardioData=cardioHist.map(h=>h.cardioKm||0);
+    const pointColors=cardioHist.map(h=>h.cardioResult==='tick'?'#00ffaa':'#ff3355');
+    if(chartInst){try{chartInst.destroy();}catch(e){}chartInst=null;}
+    const ctx2=canvas.getContext('2d');
+    chartInst=new Chart(ctx2,{
+      type:'line',
+      data:{
+        labels:cardioLabels,
+        datasets:[{
+          label:'Cardio KM',
+          data:cardioData,
+          borderColor:'#0af',
+          backgroundColor:'rgba(0,170,255,.07)',
+          fill:true,tension:.3,
+          pointRadius:5,
+          pointBackgroundColor:pointColors,
+          pointBorderColor:pointColors,
+          pointHoverRadius:7
+        }]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{
+          legend:{display:false},
+          tooltip:{callbacks:{
+            title:items=>cardioHist[items[0].dataIndex]?cardioHist[items[0].dataIndex].ts:'',
+            label:items=>(cardioHist[items[0].dataIndex].cardioResult==='tick'?'✓ ':'\u2717 ')+items.raw+' km'
+          }}
+        },
+        scales:{
+          x:{ticks:{color:'#4a5580',font:{size:7},maxRotation:55,autoSkip:cardioHist.length>10},grid:{color:'rgba(26,32,64,.4)'}},
+          y:{ticks:{color:'#4a5580',font:{size:8}},grid:{color:'rgba(26,32,64,.4)'},min:0,title:{display:true,text:'km',color:'#4a5580',font:{size:8}}}
+        }
+      }
+    });
+    return;
+  } else {
+    // Step progress: one line per series showing step number over time
+    datasets=SERIES.map((s,i)=>({
+      label:s.cat.split(' ')[0],
+      data:hist.map(h=>h.stepSnapshot?(h.stepSnapshot[s.id]||0)+1:1),
+      borderColor:colors[i],backgroundColor:'transparent',
+      tension:.3,pointRadius:2,borderWidth:2
+    }));
+  }
+
+  const ctx=canvas.getContext('2d');
+  chartInst=new Chart(ctx,{
+    type:type,data:{labels,datasets},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:activeChart==='progress',labels:{color:'#4a5580',boxWidth:10,font:{size:8},padding:6}},
+        tooltip:{callbacks:{title:items=>hist[items[0].dataIndex]?hist[items[0].dataIndex].ts:''}}
+      },
+      scales:{
+        x:{ticks:{color:'#4a5580',font:{size:7},maxRotation:55,autoSkip:hist.length>10},grid:{color:'rgba(26,32,64,.4)'}},
+        y:{ticks:{color:'#4a5580',font:{size:8}},grid:{color:'rgba(26,32,64,.4)'},min:activeChart==='progress'?1:undefined}
+      }
+    }
+  });
+}
+
+function renderRewards(){
+  const grid=document.getElementById('rewards-grid');
+  const unlocked=state.unlockedBadges||[];
+  document.getElementById('badge-cnt').textContent=unlocked.length+'/'+BADGES.length+' UNLOCKED';
+  grid.innerHTML=BADGES.map(b=>{
+    const on=unlocked.includes(b.id);
+    const onclick=on?'onclick="viewBadge(\''+b.id+'\')"':'';
+    return '<div class="badge-card '+(on?'unlocked':'locked')+'" '+onclick+'>'+
+      (on?'<div class="badge-glow"></div>':'')+
+      '<span class="badge-icon">'+(on?b.icon:'&#128274;')+'</span>'+
+      '<div class="badge-name">'+b.name+'</div>'+
+      '<div class="badge-desc">'+b.desc+'</div>'+
+      (on?'<div class="badge-unlocked-label">&#10003; TAP TO VIEW</div>':'')+
+    '</div>';
+  }).join('');
+}
+
+function viewBadge(id){
+  const b=BADGES.find(x=>x.id===id);
+  if(b) showBadgePopup(b,false);
+}
+
+function renderSeries(){
+  const area=document.getElementById('series-area');area.innerHTML='';
+  const rankMap=['rE','rE','rD','rD','rC','rB','rB','rA','rA','rS'];
+  const rankLetter=['E','E','D','D','C','B','B','A','A','S'];
+  let active=0,mastered=0;
+  SERIES.forEach(s=>{
+    const idx=state.currentSteps[s.id],done=idx>=s.steps.length;
+    if(done)mastered++;else active++;
+    const rc=rankMap[Math.min(idx,9)],rl=rankLetter[Math.min(idx,9)];
+    const isOpen=expandId===s.id;
+    const tl=state.tierLevel[s.id]||0;
+    const tLabel=['BEG','INT','PRO'][tl];
+    const dots=s.steps.map((_,i)=>i<idx?'<div class="dot done"></div>':i===idx?'<div class="dot cur"></div>':'<div class="dot"></div>').join('');
+    const curStep=s.steps[Math.min(idx,s.steps.length-1)];
+    const stepsHTML=s.steps.map((step,i)=>{
+      const sd=i<idx,sc=i===idx;
+      const cls=sd?'sdone':sc?'scur':'slocked';
+      return '<div class="srow '+cls+'">'+
+        (sc?'<div class="cur-bar"></div>':'')+
+        '<div class="snum">'+(i+1)+'</div>'+
+        '<div class="scontent"><div class="stname">'+step.n+'</div><div class="stdesc">'+step.d+'</div>'+
+          '<div class="tier-rows">'+
+            '<div class="tr beg">BEG: '+step.beg+'</div>'+
+            '<div class="tr int">INT: '+step.int+'</div>'+
+            '<div class="tr pro">PRO: '+step.pro+'</div>'+
+          '</div></div>'+
+        '<div class="sact"><div class="sxp">+'+step.xp+' XP</div>'+
+          (sd?'<span class="stag done2">DONE</span>':sc?'<span class="stag cur">'+tLabel+'</span>':'<span style="font-size:7px;color:var(--muted)">locked</span>')+
+        '</div>'+
+      '</div>';
+    }).join('');
+    const card=document.createElement('div');
+    card.className='qcard '+rc+(done?' mastered':'')+(isOpen?' open':'');
+    card.innerHTML='<div class="rstripe"></div>'+
+      '<div class="qhdr" onclick="toggleExpand(\''+s.id+'\')">'+
+        '<div class="rbadge">'+rl+'</div>'+
+        '<div class="qinfo"><div class="qname">'+s.name+(done?'<span class="mastered-tag">MASTERED</span>':'')+'</div><div class="qcat">'+s.cat+'</div></div>'+
+        '<div class="qright">'+
+          '<div class="qstd">'+(done?'MASTERED':'STEP '+(idx+1)+'/10')+'</div>'+
+          '<div class="qstd" style="color:var(--gold)">'+tLabel+' · MONTH: '+(state.monthSessions||0)+'/12</div>'+
+          '<div class="qdots">'+dots+'</div><span class="chevron">&#9660;</span>'+
+        '</div>'+
+      '</div>'+
+      '<div class="qsteps">'+stepsHTML+'</div>';
+    area.appendChild(card);
+  });
+  document.getElementById('act-cnt').textContent=active+' ACTIVE · '+mastered+' MASTERED';
+}
+
+// ─── WEEKLY QUOTE ─────────────────────────────────────────────────────────────
+const QUOTES=[
+  {text:"I alone am the honored one.",src:"Sung Jin-Woo"},
+  {text:"The most dangerous thing about a weakling is that they have nothing to lose.",src:"Sung Jin-Woo"},
+  {text:"I don't need anyone to acknowledge my power. My strength is my own.",src:"Sung Jin-Woo"},
+  {text:"Even if I have to crawl, I will move forward.",src:"Sung Jin-Woo"},
+  {text:"The moment you give up is the moment you lose.",src:"System Message"},
+  {text:"Everyone who got where they are had to begin where they were.",src:"Sung Jin-Woo"},
+  {text:"Arise. Those who have fallen are given the chance to stand again.",src:"System Message"},
+  {text:"Power isn't given. It's taken.",src:"Sung Jin-Woo"},
+  {text:"I was always the weakest. That's exactly why I know what it costs to become strong.",src:"Sung Jin-Woo"},
+  {text:"If you want to change your fate, you have to change yourself first.",src:"Sung Jin-Woo"},
+  {text:"A hunters resolve is not measured by how high he rises, but by how many times he gets back up.",src:"Go Gun-Hee"},
+  {text:"Don't be afraid of pain. Pain is proof that you're still alive and still fighting.",src:"Sung Jin-Woo"},
+  {text:"There is no shortcut to strength. Only the ones willing to endure will survive.",src:"System Message"},
+  {text:"Strength is not born. It is forged through trial and will.",src:"Sung Jin-Woo"},
+  {text:"You will face enemies you cannot defeat. That is not failure — that is a lesson.",src:"System Message"},
+  {text:"The weak have one option: become strong or be left behind.",src:"Sung Jin-Woo"},
+  {text:"Humans adapt. That is the greatest weapon any hunter possesses.",src:"Sung Jin-Woo"},
+  {text:"Fear is a signal, not a stop sign.",src:"Sung Jin-Woo"},
+  {text:"Every day you choose not to train, someone else is. Remember that.",src:"System Message"},
+  {text:"The gap between who you are and who you want to be is filled only by action.",src:"Sung Jin-Woo"},
+  {text:"I have died once. Nothing after that can frighten me.",src:"Sung Jin-Woo"},
+  {text:"Do not pray for an easy path. Pray for the strength to endure a hard one.",src:"System Message"},
+  {text:"Your limits exist only because you believe they do.",src:"Sung Jin-Woo"},
+  {text:"One rep more than yesterday. That is all the System requires.",src:"System Message"},
+  {text:"The dungeon does not care about your excuses. Neither does time.",src:"System Message"},
+  {text:"Lonely roads forge the strongest hunters.",src:"Sung Jin-Woo"},
+  {text:"I did not come this far to only come this far.",src:"Sung Jin-Woo"},
+  {text:"Consistency is the most terrifying weapon a hunter can wield.",src:"System Message"},
+  {text:"The body you have today is the result of what you did yesterday. Tomorrow belongs to what you do now.",src:"System Message"},
+  {text:"To be the best, you must first survive being the worst.",src:"Sung Jin-Woo"},
+  {text:"Arise. The hunt is not over.",src:"System Message"},
+  {text:"Others see your ranking. You see how far you still have to go. Both are correct.",src:"Sung Jin-Woo"},
+  {text:"Suffering is temporary. The strength it builds is permanent.",src:"Sung Jin-Woo"},
+  {text:"A shadow walks alone. That is the price of power.",src:"Sung Jin-Woo"},
+  {text:"The ones who quit always wonder what would have happened if they hadn't.",src:"System Message"},
+  {text:"Rest is not surrender. Rest is preparation for the next assault.",src:"System Message"},
+  {text:"Every S-rank hunter was once a nobody who refused to stay that way.",src:"Sung Jin-Woo"},
+  {text:"Discipline is choosing what you want most over what you want now.",src:"System Message"},
+  {text:"You do not rise to the level of your goals. You fall to the level of your training.",src:"System Message"},
+  {text:"The gate opens for everyone. Who walks through it is another matter entirely.",src:"Sung Jin-Woo"},
+  {text:"There is no version of the future where you regret becoming stronger.",src:"System Message"},
+  {text:"In the end, only what you have built with your own hands will remain.",src:"Sung Jin-Woo"},
+  {text:"I am the predator. I decide when the hunt ends.",src:"Sung Jin-Woo"},
+  {text:"Every monster I face is a version of the weakness I am destroying.",src:"Sung Jin-Woo"},
+  {text:"The silent ones are the dangerous ones. They are too busy becoming.",src:"System Message"},
+  {text:"Growth is not loud. It happens in the dark, in the quiet, in the pain no one else sees.",src:"Sung Jin-Woo"},
+  {text:"Rank means nothing if the spirit behind it is hollow.",src:"Go Gun-Hee"},
+  {text:"Run when you must. But never stop moving forward.",src:"Sung Jin-Woo"},
+  {text:"The system tracks your progress. Only you can determine your purpose.",src:"System Message"},
+  {text:"You were not born a hunter. You became one. Never forget the distance you have traveled.",src:"System Message"},
+];
+
+function renderWeeklyQuote(){
+  // Week number from epoch — changes every 7 days
+  const weekNum=Math.floor(todayIdx()/7);
+  const q=QUOTES[weekNum%QUOTES.length];
+  document.getElementById('quote-text').textContent='\u201C'+q.text+'\u201D';
+  document.getElementById('quote-src').textContent='— '+q.src;
+}
+
+if(state.initialized){launch();}else{buildSetup();}
+
+(function(){
+  const cv=document.getElementById('particles'),ctx=cv.getContext('2d');
+  let W,H,pts=[];
+  function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+  function mk(){return{x:Math.random()*W,y:Math.random()*H,sz:Math.random()*1.4+.3,vx:(Math.random()-.5)*.28,vy:-Math.random()*.38-.1,op:Math.random()*.28+.04,c:Math.random()>.7?'#f5c842':'#0af'};}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<50;i++)pts.push(mk());
+  function loop(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;
+      if(p.y<-5||p.x<-5||p.x>W+5){pts[i]=mk();pts[i].y=H+5;}
+      ctx.globalAlpha=p.op;ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,p.sz,0,Math.PI*2);ctx.fill();
+    });
+    ctx.globalAlpha=1;requestAnimationFrame(loop);
+  }
+  loop();
+})();
+</script>
+</body>
+</html>
