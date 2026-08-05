@@ -16,6 +16,7 @@ const C = {
   surface: "#1B1E23",
   surface2: "#22262C",
   border: "#2C3138",
+  steel: "#4A4F58",
   text: "#F3F1EB",
   textMuted: "#8C919B",
   textFaint: "#5B6069",
@@ -25,47 +26,106 @@ const C = {
 };
 
 /* ---------------------------------------------------------------------- */
-/* Program data — Convict Conditioning "Good Behavior" 3-day split        */
+/* Program data — Convict Conditioning, all Big Six every session         */
+/* Rep/hold targets are the book's actual Beginner / Intermediate /       */
+/* Progression standards for each of the 10 steps in each movement.       */
 /* ---------------------------------------------------------------------- */
 const MOVEMENTS = [
   {
     id: "pushups", label: "Pushups", icon: ChevronsUp,
-    steps: ["Wall Pushup", "Incline Pushup", "Kneeling Pushup", "Half Pushup", "Full Pushup",
-      "Close Pushup", "Uneven Pushup", "Half One-Arm Pushup", "Lever Pushup", "One-Arm Pushup"],
+    steps: [
+      { name: "Wall Pushup", goals: ["1 set of 10", "2 sets of 25", "3 sets of 50"] },
+      { name: "Incline Pushup", goals: ["1 set of 10", "2 sets of 20", "3 sets of 40"] },
+      { name: "Kneeling Pushup", goals: ["1 set of 10", "2 sets of 15", "3 sets of 30"] },
+      { name: "Half Pushup", goals: ["1 set of 8", "2 sets of 12", "2 sets of 25"] },
+      { name: "Full Pushup", goals: ["1 set of 5", "2 sets of 10", "2 sets of 20"] },
+      { name: "Close Pushup", goals: ["1 set of 5", "2 sets of 10", "2 sets of 20"] },
+      { name: "Uneven Pushup", goals: ["1 set of 5 (both sides)", "2 sets of 10 (both sides)", "2 sets of 20 (both sides)"] },
+      { name: "Half One-Arm Pushup", goals: ["1 set of 5 (both sides)", "2 sets of 10 (both sides)", "2 sets of 20 (both sides)"] },
+      { name: "Lever Pushup", goals: ["1 set of 5 (both sides)", "2 sets of 10 (both sides)", "2 sets of 20 (both sides)"] },
+      { name: "One-Arm Pushup", goals: ["1 set of 5", "2 sets of 10", "1 set of 100"] },
+    ],
   },
   {
     id: "legraises", label: "Leg Raises", icon: CircleDot,
-    steps: ["Knee Tuck", "Flat Knee Raise", "Flat Bent Leg Raise", "Flat Frog Raise", "Flat Straight Leg Raise",
-      "Hanging Knee Raise", "Hanging Bent Leg Raise", "Hanging Frog Raise", "Partial Straight Leg Raise", "Hanging Straight Leg Raise"],
+    steps: [
+      { name: "Knee Tuck", goals: ["1 set of 10", "2 sets of 25", "3 sets of 40"] },
+      { name: "Flat Knee Raise", goals: ["1 set of 10", "2 sets of 20", "3 sets of 35"] },
+      { name: "Flat Bent Leg Raise", goals: ["1 set of 10", "2 sets of 15", "3 sets of 30"] },
+      { name: "Flat Frog Raise", goals: ["1 set of 8", "2 sets of 15", "3 sets of 25"] },
+      { name: "Flat Straight Leg Raise", goals: ["1 set of 5", "2 sets of 10", "2 sets of 20"] },
+      { name: "Hanging Knee Raise", goals: ["1 set of 5", "2 sets of 10", "2 sets of 15"] },
+      { name: "Hanging Bent Leg Raise", goals: ["1 set of 5", "2 sets of 10", "2 sets of 15"] },
+      { name: "Hanging Frog Raise", goals: ["1 set of 5", "2 sets of 10", "2 sets of 15"] },
+      { name: "Partial Straight Leg Raise", goals: ["1 set of 5", "2 sets of 10", "2 sets of 15"] },
+      { name: "Hanging Straight Leg Raise", goals: ["1 set of 5", "2 sets of 10", "2 sets of 30"] },
+    ],
   },
   {
     id: "pullups", label: "Pull-ups", icon: ChevronsDown,
-    steps: ["Vertical Pull", "Horizontal Pull", "Jackknife Pull-up", "Half Pull-up", "Full Pull-up",
-      "Close Pull-up", "Uneven Pull-up", "Half One-Arm Pull-up", "Assisted One-Arm Pull-up", "One-Arm Pull-up"],
+    steps: [
+      { name: "Vertical Pull", goals: ["1 set of 10", "2 sets of 20", "3 sets of 40"] },
+      { name: "Horizontal Pull", goals: ["1 set of 10", "2 sets of 20", "3 sets of 30"] },
+      { name: "Jackknife Pull-up", goals: ["1 set of 10", "2 sets of 15", "3 sets of 20"] },
+      { name: "Half Pull-up", goals: ["1 set of 8", "2 sets of 11", "2 sets of 15"] },
+      { name: "Full Pull-up", goals: ["1 set of 5", "2 sets of 8", "2 sets of 10"] },
+      { name: "Close Pull-up", goals: ["1 set of 5", "2 sets of 8", "2 sets of 10"] },
+      { name: "Uneven Pull-up", goals: ["1 set of 5 (both sides)", "2 sets of 7 (both sides)", "2 sets of 9 (both sides)"] },
+      { name: "Half One-Arm Pull-up", goals: ["1 set of 4 (both sides)", "2 sets of 6 (both sides)", "2 sets of 8 (both sides)"] },
+      { name: "Assisted One-Arm Pull-up", goals: ["1 set of 3 (both sides)", "2 sets of 5 (both sides)", "2 sets of 7 (both sides)"] },
+      { name: "One-Arm Pull-up", goals: ["1 set of 1", "2 sets of 3", "2 sets of 6"] },
+    ],
   },
   {
     id: "squats", label: "Squats", icon: Footprints,
-    steps: ["Shoulderstand Squat", "Jackknife Squat", "Supported Squat", "Half Squat", "Full Squat",
-      "Close Squat", "Uneven Squat", "Half One-Leg Squat", "Assisted One-Leg Squat", "One-Leg Squat"],
+    steps: [
+      { name: "Shoulderstand Squat", goals: ["1 set of 10", "2 sets of 25", "3 sets of 50"] },
+      { name: "Jackknife Squat", goals: ["1 set of 10", "2 sets of 20", "3 sets of 40"] },
+      { name: "Supported Squat", goals: ["1 set of 10", "2 sets of 15", "3 sets of 30"] },
+      { name: "Half Squat", goals: ["1 set of 8", "2 sets of 35", "2 sets of 50"] },
+      { name: "Full Squat", goals: ["1 set of 5", "2 sets of 10", "2 sets of 30"] },
+      { name: "Close Squat", goals: ["1 set of 5", "2 sets of 10", "2 sets of 20"] },
+      { name: "Uneven Squat", goals: ["1 set of 5 (both sides)", "2 sets of 10 (both sides)", "2 sets of 20 (both sides)"] },
+      { name: "Half One-Leg Squat", goals: ["1 set of 5 (both sides)", "2 sets of 10 (both sides)", "2 sets of 20 (both sides)"] },
+      { name: "Assisted One-Leg Squat", goals: ["1 set of 5 (both sides)", "2 sets of 10 (both sides)", "2 sets of 20 (both sides)"] },
+      { name: "One-Leg Squat", goals: ["1 set of 5", "2 sets of 10", "2 sets of 50"] },
+    ],
   },
   {
     id: "handstandpushups", label: "Handstand Pushups", icon: ArrowUp,
-    steps: ["Wall Headstand", "Crow Stand", "Wall Handstand", "Half Handstand Pushup", "Full Handstand Pushup",
-      "Close Handstand Pushup", "Uneven Handstand Pushup", "Half One-Arm Handstand Pushup", "Lever Handstand Pushup", "One-Arm Handstand Pushup"],
+    steps: [
+      { name: "Wall Headstand", goals: ["30 sec hold", "1 min hold", "2 min hold"] },
+      { name: "Crow Stand", goals: ["10 sec hold", "30 sec hold", "1 min hold"] },
+      { name: "Wall Handstand", goals: ["30 sec hold", "1 min hold", "2 min hold"] },
+      { name: "Half Handstand Pushup", goals: ["1 set of 5", "2 sets of 10", "2 sets of 20"] },
+      { name: "Full Handstand Pushup", goals: ["1 set of 5", "2 sets of 10", "2 sets of 15"] },
+      { name: "Close Handstand Pushup", goals: ["1 set of 5", "2 sets of 9", "2 sets of 12"] },
+      { name: "Uneven Handstand Pushup", goals: ["1 set of 5 (both sides)", "2 sets of 8 (both sides)", "2 sets of 10 (both sides)"] },
+      { name: "Half One-Arm Handstand Pushup", goals: ["1 set of 4 (both sides)", "2 sets of 6 (both sides)", "2 sets of 8 (both sides)"] },
+      { name: "Lever Handstand Pushup", goals: ["1 set of 3 (both sides)", "2 sets of 4 (both sides)", "2 sets of 6 (both sides)"] },
+      { name: "One-Arm Handstand Pushup", goals: ["1 set of 1", "2 sets of 2", "1 set of 5"] },
+    ],
   },
   {
     id: "bridges", label: "Bridges", icon: Waves,
-    steps: ["Short Bridge", "Straight Bridge", "Angled Bridge", "Head Bridge", "Half Bridge",
-      "Full Bridge", "Wall Walking Bridge (Down)", "Wall Walking Bridge (Up)", "Closing Bridge", "Stand-to-Stand Bridge"],
+    steps: [
+      { name: "Short Bridge", goals: ["1 set of 10", "2 sets of 25", "3 sets of 50"] },
+      { name: "Straight Bridge", goals: ["1 set of 10", "2 sets of 20", "3 sets of 40"] },
+      { name: "Angled Bridge", goals: ["1 set of 8", "2 sets of 15", "3 sets of 30"] },
+      { name: "Head Bridge", goals: ["1 set of 8", "2 sets of 15", "2 sets of 25"] },
+      { name: "Half Bridge", goals: ["1 set of 8", "2 sets of 15", "2 sets of 20"] },
+      { name: "Full Bridge", goals: ["1 set of 6", "2 sets of 10", "2 sets of 15"] },
+      { name: "Wall Walking Bridge (Down)", goals: ["1 set of 3", "2 sets of 6", "2 sets of 10"] },
+      { name: "Wall Walking Bridge (Up)", goals: ["1 set of 2", "2 sets of 4", "2 sets of 8"] },
+      { name: "Closing Bridge", goals: ["1 set of 1", "2 sets of 3", "2 sets of 6"] },
+      { name: "Stand-to-Stand Bridge", goals: ["1 set of 1", "2 sets of 3", "2 sets of 10-30"] },
+    ],
   },
 ];
 const CARDIO = { id: "cardio", label: "Cardio", icon: Flame };
 
-const SCHEDULE = {
-  1: ["pushups", "legraises"],        // Monday
-  3: ["pullups", "squats"],           // Wednesday
-  5: ["handstandpushups", "bridges"], // Friday
-};
+const ALL_MOVEMENT_IDS = MOVEMENTS.map((m) => m.id);
+const SCHEDULE_DAYS = [1, 3, 5]; // Mon / Wed / Fri — all Big Six + cardio each session
 
 const STANDARDS = [
   { id: "beginner", label: "Beginner" },
@@ -74,6 +134,10 @@ const STANDARDS = [
 ];
 
 const getMovement = (id) => MOVEMENTS.find((m) => m.id === id);
+const getStepGoals = (movementId, stepName) => {
+  const step = getMovement(movementId).steps.find((s) => s.name === stepName);
+  return step ? step.goals : null;
+};
 
 /* ---------------------------------------------------------------------- */
 /* Date helpers                                                           */
@@ -83,7 +147,7 @@ const toDateStr = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.ge
 const prettyDate = (d) => d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
 
 function getScheduleForDate(date) {
-  return SCHEDULE[date.getDay()] || null;
+  return SCHEDULE_DAYS.includes(date.getDay()) ? ALL_MOVEMENT_IDS : null;
 }
 
 function pruneRecords(records) {
@@ -96,14 +160,17 @@ function pruneRecords(records) {
 /* ---------------------------------------------------------------------- */
 /* Small UI atoms                                                         */
 /* ---------------------------------------------------------------------- */
-function PulseDivider() {
+function BarsDivider() {
+  const bars = 13;
   return (
-    <svg viewBox="0 0 400 24" className="w-full h-6" preserveAspectRatio="none">
-      <polyline
-        points="0,12 140,12 158,2 172,22 188,4 202,12 400,12"
-        fill="none" stroke={C.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-        className="pulse-line"
-      />
+    <svg viewBox="0 0 400 24" className="w-full h-6">
+      <rect x="0" y="2" width="400" height="3" fill={C.steel} />
+      <rect x="0" y="19" width="400" height="3" fill={C.steel} />
+      {Array.from({ length: bars }).map((_, i) => {
+        const x = 6 + i * ((400 - 12) / (bars - 1));
+        const isEnd = i === 0 || i === bars - 1;
+        return <rect key={i} x={x - 2} y="2" width="4" height="20" fill={isEnd ? C.accent : C.steel} />;
+      })}
     </svg>
   );
 }
@@ -290,11 +357,6 @@ export default function Ironworks() {
     <div className="min-h-screen w-full flex justify-center" style={{ backgroundColor: C.bg, fontFamily: "'Inter', sans-serif" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
-        .pulse-line { stroke-dasharray: 500; stroke-dashoffset: 500; animation: dash 2.6s ease-in-out infinite; }
-        @keyframes dash { 0% { stroke-dashoffset: 500; opacity: 0.4; } 50% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: -500; opacity: 0.4; } }
-        .glow-btn { animation: glow 1.8s ease-in-out infinite; }
-        @keyframes glow { 0%, 100% { box-shadow: 0 0 0px rgba(255,90,54,0.0); } 50% { box-shadow: 0 0 18px rgba(255,90,54,0.55); } }
-        @media (prefers-reduced-motion: reduce) { .pulse-line, .glow-btn { animation: none !important; } }
       `}</style>
 
       <div className="w-full max-w-md px-4 pt-6 pb-10">
@@ -376,7 +438,7 @@ function MainView({ today, todaySchedule, todayRecord, onRecord, onHistory }) {
       <div className="text-xs mb-2" style={{ color: todaySchedule ? C.accent : C.textMuted }}>
         {todaySchedule ? "Workout Day" : "Rest Day"}
       </div>
-      <PulseDivider />
+      <BarsDivider />
 
       <div className="grid grid-cols-2 gap-3 mt-6">
         <Card
@@ -418,13 +480,13 @@ function MainView({ today, todaySchedule, todayRecord, onRecord, onHistory }) {
 /* ---------------------------------------------------------------------- */
 /* DAY VIEW (record / skip)                                               */
 /* ---------------------------------------------------------------------- */
-function DayView({ todaySchedule, onBack, onRecord, onSkip }) {
+function DayView({ todaySchedule, onBack, onSkip, onRecord }) {
   return (
     <div>
       <BackHeader title="Today's Session" onBack={onBack} />
       <div className="rounded-2xl p-5" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
         <div className="text-xs uppercase tracking-wide mb-3" style={{ color: C.textMuted }}>
-          On the schedule
+          The Big Six + Cardio
         </div>
         <div className="flex flex-col gap-2 mb-5">
           {todaySchedule.map((m) => {
@@ -485,6 +547,7 @@ function RecordFormView({ todaySchedule, answers, setAnswers, onPickExercise, on
           const mDef = getMovement(m);
           const Icon = mDef.icon;
           const a = answers[m];
+          const goals = a.exercise ? getStepGoals(m, a.exercise) : null;
           return (
             <div key={m} className="rounded-2xl p-4" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
               <div className="flex items-center gap-2 mb-3">
@@ -500,12 +563,12 @@ function RecordFormView({ todaySchedule, answers, setAnswers, onPickExercise, on
                   <div className="flex flex-col gap-1.5">
                     {mDef.steps.map((step, i) => (
                       <button
-                        key={step}
-                        onClick={() => chooseExercise(m, step)}
+                        key={step.name}
+                        onClick={() => chooseExercise(m, step.name)}
                         className="text-left rounded-lg px-3 py-2 text-sm"
                         style={{ backgroundColor: C.surface2, color: C.text, border: `1px solid ${C.border}` }}
                       >
-                        <span style={{ color: C.textFaint }}>{i + 1}.</span> {step}
+                        <span style={{ color: C.textFaint }}>{i + 1}.</span> {step.name}
                       </button>
                     ))}
                   </div>
@@ -520,22 +583,23 @@ function RecordFormView({ todaySchedule, answers, setAnswers, onPickExercise, on
                   </div>
 
                   <div className="text-xs mb-1.5" style={{ color: C.textMuted }}>Standard</div>
-                  <div className="flex gap-2 mb-3">
-                    {STANDARDS.map((s) => (
+                  <div className="grid grid-cols-3 gap-2 mb-3">
+                    {STANDARDS.map((s, si) => (
                       <button
                         key={s.id}
                         onClick={() => updateMovement(m, { standard: s.id })}
-                        className="flex-1 rounded-lg py-2 text-xs font-semibold"
-                        style={{
-                          backgroundColor: a.standard === s.id ? C.accent : C.surface2,
-                          color: a.standard === s.id ? "#0F1115" : C.textMuted,
-                        }}
+                        className="rounded-lg py-2 px-1 text-center"
+                        style={{ backgroundColor: a.standard === s.id ? C.accent : C.surface2 }}
                       >
-                        {s.label}
+                        <div className="text-xs font-semibold" style={{ color: a.standard === s.id ? "#0F1115" : C.textMuted }}>
+                          {s.label}
+                        </div>
+                        <div className="text-[10px] mt-0.5 leading-tight" style={{ color: a.standard === s.id ? "#0F1115" : C.textFaint }}>
+                          {goals ? goals[si] : "—"}
+                        </div>
                       </button>
                     ))}
                   </div>
-
                   <div className="text-xs mb-1.5" style={{ color: C.textMuted }}>Result</div>
                   <div className="flex gap-2">
                     <button
@@ -589,8 +653,13 @@ function RecordFormView({ todaySchedule, answers, setAnswers, onPickExercise, on
           <button
             disabled={!isComplete}
             onClick={onComplete}
-            className={`w-full rounded-xl py-3 font-semibold text-sm ${isComplete ? "glow-btn" : ""}`}
-            style={{ backgroundColor: isComplete ? C.accent : C.surface2, color: isComplete ? "#0F1115" : C.textFaint, fontFamily: "'Oswald', sans-serif", letterSpacing: "0.03em" }}
+            className="w-full rounded-xl py-3 font-semibold text-sm"
+            style={{
+              backgroundColor: isComplete ? C.accent : C.surface2,
+              color: isComplete ? "#0F1115" : C.textFaint,
+              fontFamily: "'Oswald', sans-serif", letterSpacing: "0.03em",
+              boxShadow: isComplete ? "inset 0 -3px rgba(0,0,0,0.25), inset 0 2px rgba(255,255,255,0.18)" : "none",
+            }}
           >
             Complete Workout
           </button>
@@ -662,35 +731,38 @@ function StatBar({ label, count, max, color }) {
 function HistoryMovementView({ movement, getStepStats, onBack }) {
   const Icon = movement.icon;
   let maxCount = 1;
-  const allStats = movement.steps.map((step) => {
-    const s = getStepStats(movement.id, step);
+  const allStats = movement.steps.map(({ name, goals }) => {
+    const s = getStepStats(movement.id, name);
     STANDARDS.forEach((std) => {
       maxCount = Math.max(maxCount, s[std.id].completed, s[std.id].failed);
     });
-    return { step, s };
+    return { name, goals, s };
   });
 
   return (
     <div>
       <BackHeader title={movement.label} onBack={onBack} />
       <div className="flex flex-col gap-3">
-        {allStats.map(({ step, s }, i) => {
+        {allStats.map(({ name, goals, s }, i) => {
           const hasAny = STANDARDS.some((std) => s[std.id].completed > 0 || s[std.id].failed > 0);
           return (
-            <div key={step} className="rounded-2xl p-3.5 flex gap-3" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
+            <div key={name} className="rounded-2xl p-3.5 flex gap-3" style={{ backgroundColor: C.surface, border: `1px solid ${C.border}` }}>
               <div className="rounded-lg p-2 h-fit shrink-0" style={{ backgroundColor: C.surface2 }}>
                 <Icon size={16} color={C.accent} />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-xs font-medium mb-2 truncate" style={{ color: C.text }}>
-                  <span style={{ color: C.textFaint }}>{i + 1}.</span> {step}
+                  <span style={{ color: C.textFaint }}>{i + 1}.</span> {name}
                 </div>
                 {hasAny ? (
                   <div className="flex flex-col gap-1.5">
-                    {STANDARDS.map((std) => (
+                    {STANDARDS.map((std, si) => (
                       <div key={std.id} className="flex flex-col gap-0.5">
-                        <StatBar label={std.label} count={s[std.id].completed} max={maxCount} color={C.ok} />
-                        <StatBar label="" count={s[std.id].failed} max={maxCount} color={C.fail} />
+                        <div className="text-[9px]" style={{ color: C.textFaint }}>
+                          {std.label}{goals ? ` — ${goals[si]}` : ""}
+                        </div>
+                        <StatBar label="Done" count={s[std.id].completed} max={maxCount} color={C.ok} />
+                        <StatBar label="Failed" count={s[std.id].failed} max={maxCount} color={C.fail} />
                       </div>
                     ))}
                   </div>
